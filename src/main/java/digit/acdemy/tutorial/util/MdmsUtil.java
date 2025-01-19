@@ -7,10 +7,9 @@ import digit.acdemy.tutorial.config.Configuration;
 import digit.acdemy.tutorial.web.models.MdmsCriteriaReqV2;
 import digit.acdemy.tutorial.web.models.MdmsCriteriaV2;
 import digit.acdemy.tutorial.web.models.MdmsResponseV2;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.minidev.json.JSONArray;
 import org.egov.common.contract.request.RequestInfo;
-import org.egov.mdms.model.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -23,16 +22,14 @@ import static digit.acdemy.tutorial.config.ServiceConstants.ERROR_WHILE_FETCHING
 
 @Slf4j
 @Component
+@RequiredArgsConstructor
 public class MdmsUtil {
 
-    @Autowired
-    private RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
 
-    @Autowired
-    private ObjectMapper mapper;
+    private final ObjectMapper mapper;
 
-    @Autowired
-    private Configuration configs;
+    private final Configuration configs;
 
     public JsonNode fetchMdmsData(RequestInfo requestInfo,
                                   String tenantId,

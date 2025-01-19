@@ -2,7 +2,6 @@ package digit.acdemy.tutorial.web.models.individual;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import digit.web.models.usermetrics.UserMetrics;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,7 +22,4 @@ public class IndividualRequest {
 
     @JsonProperty("Individual")
     private Individual individual = null;
-
-    @JsonProperty("userMetrics")
-    private UserMetrics userMetrics = null;
 }

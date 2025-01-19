@@ -5,8 +5,6 @@ import digit.acdemy.tutorial.config.Configuration;
 import digit.acdemy.tutorial.util.UserUtil;
 import digit.acdemy.tutorial.web.models.Advocate;
 import digit.acdemy.tutorial.web.models.AdvocateRequest;
-import digit.acdemy.tutorial.web.models.individual.Individual;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.egov.common.contract.request.RequestInfo;
@@ -18,7 +16,6 @@ import org.egov.tracer.model.CustomException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
-import org.springframework.util.ObjectUtils;
 
 import java.util.Collections;
 import java.util.List;
@@ -27,13 +24,19 @@ import java.util.UUID;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-@RequiredArgsConstructor
+
 @Service
 @Slf4j
 public class UserService {
-    private final UserUtil userUtils;
+    private UserUtil userUtils;
 
-    private final Configuration config;
+    private Configuration config;
+
+    @Autowired
+    public UserService(UserUtil userUtils, Configuration config) {
+        this.userUtils = userUtils;
+        this.config = config;
+    }
 
     /**
      * Calls user service to enrich user from search or upsert user
@@ -45,29 +48,14 @@ public class UserService {
                 enrichUser(application, request.getRequestInfo());
             else {
                 User user = createUser(application);
-                application.setId(
-                        UUID.fromString(upsertUser(user, request.getRequestInfo()).getUuid()));
+                application.setId(UUID.fromString(upsertUser(user, request.getRequestInfo()).getUuid()));
             }
         });
     }
 
-    private User createIndvidual(Advocate advocate){
-        Individual individual = advocate.getIndividualId();
-        User user = Individual.builder()
-                .userId(UUID.randomUUID().toString())
-                .name(individual.getName())
-                .id(UUID.randomUUID().toString())
-                .mobileNumber(individual.getMobileNumber())
-                .email(individual.getEmail())
-                .tenantId(father.getTenantId())
-                .type(father.getType())
-                .roles(father.getRoles())
-                .build();
-        return user;
-    }
-
     private User createUser(Advocate application){
-        User user = User.builder().userName(father.getUserName())
+        User father = User.builder().build();
+       return User.builder().userName(father.getUserName())
                 .name(father.getName())
                 .userName((father.getUserName()))
                 .mobileNumber(father.getMobileNumber())
@@ -76,7 +64,6 @@ public class UserService {
                 .type(father.getType())
                 .roles(father.getRoles())
                 .build();
-        return user;
     }
 
     private User upsertUser(User user, RequestInfo requestInfo){
@@ -104,23 +91,17 @@ public class UserService {
     }
 
 
-    private void enrichUser(BirthRegistrationApplication application, RequestInfo requestInfo){
-        String accountIdFather = application.getFather().getUuid();
-        String  accountIdMother = application.getMother().getUuid();
+    private void enrichUser(Advocate application, RequestInfo requestInfo){
+        String accountIdFather = application.getId().toString();
         String tenantId = application.getTenantId();
 
-        UserDetailResponse userDetailResponseFather = searchUser(userUtils.getStateLevelTenant(tenantId),accountIdFather,null);
-        UserDetailResponse userDetailResponseMother = searchUser(userUtils.getStateLevelTenant(tenantId),accountIdMother,null);
+        UserDetailResponse userDetailResponseFather
+                = searchUser(userUtils.getStateLevelTenant(tenantId),accountIdFather,null);
+
         if(userDetailResponseFather.getUser().isEmpty())
             throw new CustomException("INVALID_ACCOUNTID","No user exist for the given accountId");
 
-        else application.getFather().setUuid(userDetailResponseFather.getUser().get(0).getUuid());
-
-        if(userDetailResponseMother.getUser().isEmpty())
-            throw new CustomException("INVALID_ACCOUNTID","No user exist for the given accountId");
-
-        else application.getMother().setUuid(userDetailResponseMother.getUser().get(0).getUuid());
-
+        else application.setId(UUID.fromString(userDetailResponseFather.getUser().get(0).getUuid()));
     }
 
     /**

@@ -1,13 +1,13 @@
 package digit.acdemy.tutorial.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import digit.config.Configuration;
-import static digit.config.ServiceConstants.*;
-import digit.models.coremodels.user.Role;
-import digit.models.coremodels.user.User;
-import digit.models.coremodels.user.enums.UserType;
-import digit.repository.ServiceRequestRepository;
-import digit.models.coremodels.UserDetailResponse;
+
+import static digit.acdemy.tutorial.config.ServiceConstants.*;
+import digit.acdemy.tutorial.config.Configuration;
+import digit.acdemy.tutorial.repository.ServiceRequestRepository;
+import org.egov.common.contract.request.Role;
+import org.egov.common.contract.request.User;
+import org.egov.common.contract.user.UserDetailResponse;
 import org.egov.tracer.model.CustomException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -44,12 +44,12 @@ public class UserUtil {
 
     public UserDetailResponse userCall(Object userRequest, StringBuilder uri) {
         String dobFormat = null;
-        if(uri.toString().contains(configs.getUserSearchEndpoint())  || uri.toString().contains(configs.getUserUpdateEndpoint()))
+        if(uri.toString().contains(configs.getUserSearchEndpoint()) || uri.toString().contains(configs.getUserUpdateEndpoint()))
             dobFormat=DOB_FORMAT_Y_M_D;
         else if(uri.toString().contains(configs.getUserCreateEndpoint()))
             dobFormat = DOB_FORMAT_D_M_Y;
         try{
-            LinkedHashMap responseMap = (LinkedHashMap)serviceRequestRepository.fetchResult(uri, userRequest);
+            LinkedHashMap responseMap = (LinkedHashMap) serviceRequestRepository.fetchResult(uri, userRequest);
             parseResponse(responseMap,dobFormat);
             UserDetailResponse userDetailResponse = mapper.convertValue(responseMap,UserDetailResponse.class);
             return userDetailResponse;
@@ -107,13 +107,11 @@ public class UserUtil {
      * @param tenantId
      * @param userInfo
      */
-    public void addUserDefaultFields(String mobileNumber,String tenantId, User userInfo, UserType userType){
+    public void addUserDefaultFields(String mobileNumber,String tenantId, User userInfo){
         Role role = getCitizenRole(tenantId);
-        userInfo.setRoles(Collections.singleton(role));
-        userInfo.setType(userType);
-        userInfo.setUsername(mobileNumber);
+        userInfo.setMobileNumber(mobileNumber);
         userInfo.setTenantId(getStateLevelTenant(tenantId));
-        userInfo.setActive(true);
+        userInfo.setType("CITIZEN");
     }
 
     /**

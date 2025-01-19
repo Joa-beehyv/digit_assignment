@@ -1,13 +1,15 @@
 package digit.acdemy.tutorial.util;
 
+import digit.acdemy.tutorial.config.Configuration;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import java.util.HashMap;
-import digit.config.Configuration;
-import static digit.config.ServiceConstants.*;
+
+import static digit.acdemy.tutorial.config.ServiceConstants.*;
+
 
 @Slf4j
 @Component

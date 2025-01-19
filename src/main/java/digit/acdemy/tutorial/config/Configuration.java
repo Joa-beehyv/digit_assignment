@@ -53,7 +53,6 @@ public class Configuration {
     @Value("${egov.workflow.processinstance.search.path}")
     private String wfProcessInstanceSearchPath;
 
-
     //MDMS
     @Value("${egov.mdms.host}")
     private String mdmsHost;

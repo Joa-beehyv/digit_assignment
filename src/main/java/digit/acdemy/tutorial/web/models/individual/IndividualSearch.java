@@ -3,7 +3,6 @@ package digit.acdemy.tutorial.web.models.individual;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import digit.web.models.enums.Gender;
 import io.swagger.annotations.ApiModel;
 import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;
@@ -11,6 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.egov.common.contract.user.enums.Gender;
 import org.egov.common.data.query.annotations.Exclude;
 import org.springframework.validation.annotation.Validated;
 
@@ -73,10 +73,6 @@ public class IndividualSearch {
     @JsonProperty("createdTo")
     @Exclude
     private BigDecimal createdTo = null;
-
-    @JsonProperty("identifier")
-    @Exclude
-    private Identifier identifier = null;
 
     @JsonProperty("boundaryCode")
     @Exclude

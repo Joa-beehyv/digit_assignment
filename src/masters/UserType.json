@@ -1,0 +1,12 @@
+{
+  "tenantId": "joa",
+  "moduleName": "masters",
+  "UserType": [
+    {
+      "code": "ADVOCATE"
+    },
+    {
+      "code": "ADVOCATE_CLERK"
+    }
+  ]
+}

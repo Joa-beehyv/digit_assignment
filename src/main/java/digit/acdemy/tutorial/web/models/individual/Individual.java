@@ -62,14 +62,20 @@ public class Individual {
     @JsonProperty("pincode")
     private String pinCode = null;
 
-    @JsonIgnore
-    private Boolean hasErrors = Boolean.FALSE;
+    @JsonProperty("state")
+    private String state = null;
 
-    @JsonProperty("isSystemUser")
-    private Boolean isSystemUser = Boolean.FALSE;
+    @JsonProperty("district")
+    private String district = null;
 
-    @JsonProperty("isSystemUserActive")
-    private Boolean isSystemUserActive = Boolean.TRUE;
+    @JsonProperty("town")
+    private String town = null;
+
+    @JsonProperty("street_name")
+    private String streetName = null;
+
+    @JsonProperty("building_name")
+    private String buildingName = null;
 
     @JsonProperty("userDetails")
     private UserDetails userDetails;

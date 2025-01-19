@@ -33,7 +33,7 @@ public class AadharNumberValidator implements Validator<AdvocateRequest, Advocat
         Map<Advocate, List<Error>> errorDetailsMap = new HashMap<>();
         List<Advocate> advocates = request.getAdvocates();
         advocates.forEach(advocate -> {
-            if (stringUtil.hasExactlyNDigits.test(advocate.getIndividualId(), 12)) {
+            if (stringUtil.hasExactlyNDigits.test(advocate.getApplicationNumber(), 12)) {
                 errors.add(Error.builder()
                         .errorMessage("Invalid Aadhaar Number")
                         .errorCode("INVALID_AADHAAR")
