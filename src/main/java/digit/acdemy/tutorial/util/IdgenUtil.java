@@ -1,8 +1,8 @@
 package digit.acdemy.tutorial.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import digit.repository.ServiceRequestRepository;
-import digit.config.Configuration;
+import digit.acdemy.tutorial.config.Configuration;
+import digit.acdemy.tutorial.repository.ServiceRequestRepository;
 import digit.models.coremodels.IdGenerationRequest;
 import digit.models.coremodels.IdGenerationResponse;
 import digit.models.coremodels.IdRequest;
@@ -17,7 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static digit.config.ServiceConstants.*;
+import static digit.acdemy.tutorial.config.ServiceConstants.IDGEN_ERROR;
+import static digit.acdemy.tutorial.config.ServiceConstants.NO_IDS_FOUND_ERROR;
+
 
 @Component
 public class IdgenUtil {

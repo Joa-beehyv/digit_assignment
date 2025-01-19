@@ -54,6 +54,12 @@ public class AdvocateQueryBuilder
             preparedStmtList.add(criteria.getApplicationNumber());
         }
 
+        if (!ObjectUtils.isEmpty(criteria.getApplicationNumber())) {
+            query = addClause.appendClauseIfRequired(query, preparedStmtList);
+            query.append(" barregistrationnumber = ? ");
+            preparedStmtList.add(criteria.getBarRegistrationNumber());
+        }
+
         return new QueryPair<>(query.toString(), new PreparedStatementBuilder(preparedStmtList));
     }
 }

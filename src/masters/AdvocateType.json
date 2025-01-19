@@ -1,0 +1,14 @@
+{
+  "tenantId": "",
+  "moduleName": "masters",
+  "AdvocateType": [
+    {
+      "code": "ADVOCATE",
+      "active": true
+    },
+    {
+      "code": "ADVOCATE_CLERK",
+      "active": true
+    }
+  ]
+}

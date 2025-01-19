@@ -1,0 +1,38 @@
+serviceMaps:
+  serviceName: advocate-details
+  mappings:
+    - version: 1.0
+      name: advocate-details-save
+      description: Save advocate details to the database
+      fromTopic: save-advocate-details
+      isTransaction: true
+      queryMaps:
+        - query: >
+            INSERT INTO advocate (
+                id, tenantid, applicationnumber, barregistrationnumber, 
+                advocatetype, organisationid, individualid, isactive, 
+                workflow, documents, auditdetails, additionaldetails
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ON CONFLICT ;
+          basePath: $.*
+          jsonMaps:
+            - jsonPath: $.*.id
+            - jsonPath: $.*.tenantId
+            - jsonPath: $.*.applicationNumber
+            - jsonPath: $.*.barRegistrationNumber
+            - jsonPath: $.*.advocateType
+            - jsonPath: $.*.organisationId
+            - jsonPath: $.*.individualId
+            - jsonPath: $.*.isActive
+            - jsonPath: $.*.workflow
+              type: JSON
+              dbType: JSONB
+            - jsonPath: $.*.documents
+              type: JSON
+              dbType: JSONB
+            - jsonPath: $.*.auditDetails
+              type: JSON
+              dbType: JSONB
+            - jsonPath: $.*.additionalDetails
+              type: JSON
+              dbType: JSONB

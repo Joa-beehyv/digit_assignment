@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.egov.common.contract.request.RequestInfo;
+import org.egov.common.contract.request.User;
 import org.springframework.validation.annotation.Validated;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;

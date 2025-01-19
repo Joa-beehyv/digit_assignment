@@ -1,7 +1,12 @@
 package digit.acdemy.tutorial.util;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import digit.config.Configuration;
+import digit.acdemy.tutorial.config.Configuration;
+import digit.acdemy.tutorial.web.models.MdmsCriteriaReqV2;
+import digit.acdemy.tutorial.web.models.MdmsCriteriaV2;
+import digit.acdemy.tutorial.web.models.MdmsResponseV2;
 import lombok.extern.slf4j.Slf4j;
 import net.minidev.json.JSONArray;
 import org.egov.common.contract.request.RequestInfo;
@@ -11,12 +16,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-import static digit.config.ServiceConstants.*;
+import static digit.acdemy.tutorial.config.ServiceConstants.ERROR_WHILE_FETCHING_FROM_MDMS;
+
 
 @Slf4j
 @Component
@@ -31,50 +34,41 @@ public class MdmsUtil {
     @Autowired
     private Configuration configs;
 
-    public Map<String, Map<String, JSONArray>> fetchMdmsData(RequestInfo requestInfo,
-                                                             String tenantId,
-                                                             String moduleName,
-                                                             List<String> masterNameList) {
+    public JsonNode fetchMdmsData(RequestInfo requestInfo,
+                                  String tenantId,
+                                  String schemaCode,
+                                  Set<String> uniqueIdentifiers) throws JsonProcessingException {
         StringBuilder uri = new StringBuilder();
         uri.append(configs.getMdmsHost()).append(configs.getMdmsEndPoint());
-        MdmsCriteriaReq mdmsCriteriaReq = getMdmsRequest(requestInfo, tenantId, moduleName, masterNameList);
+        MdmsCriteriaReqV2 mdmsCriteriaReq
+                = getMdmsRequest(requestInfo, tenantId, schemaCode,uniqueIdentifiers);
+
         Object response = new HashMap<>();
         Integer rate = 0;
-        MdmsResponse mdmsResponse = new MdmsResponse();
+        MdmsResponseV2 mdmsResponse = new MdmsResponseV2();
         try {
             response = restTemplate.postForObject(uri.toString(), mdmsCriteriaReq, Map.class);
-            mdmsResponse = mapper.convertValue(response, MdmsResponse.class);
+            mdmsResponse = mapper.convertValue(response, MdmsResponseV2.class);
         } catch (Exception e) {
             log.error(ERROR_WHILE_FETCHING_FROM_MDMS, e);
         }
 
-        return mdmsResponse.getMdmsRes();
+        return mapper.treeToValue(mdmsResponse.getMdms().get(0).getData(), JsonNode.class);
         //log.info(ulbToCategoryListMap.toString());
     }
 
-    private MdmsCriteriaReq getMdmsRequest(RequestInfo requestInfo, String tenantId,
-                                           String moduleName, List<String> masterNameList) {
-        List<MasterDetail> masterDetailList = new ArrayList<>();
-        for (String masterName : masterNameList) {
-            MasterDetail masterDetail = new MasterDetail();
-            masterDetail.setName(masterName);
-            masterDetailList.add(masterDetail);
-        }
+    private MdmsCriteriaReqV2 getMdmsRequest(RequestInfo requestInfo, String tenantId,
+                                             String schemeCode, Set<String> uniqueIdentifier) {
 
-        ModuleDetail moduleDetail = new ModuleDetail();
-        moduleDetail.setMasterDetails(masterDetailList);
-        moduleDetail.setModuleName(moduleName);
-        List<ModuleDetail> moduleDetailList = new ArrayList<>();
-        moduleDetailList.add(moduleDetail);
+        MdmsCriteriaV2 mdmsCriteria = MdmsCriteriaV2.builder()
+                .tenantId(tenantId.split("\\.")[0])
+                .schemaCode(schemeCode)
+                .uniqueIdentifiers(uniqueIdentifier)
+                .build();
 
-        MdmsCriteria mdmsCriteria = new MdmsCriteria();
-        mdmsCriteria.setTenantId(tenantId.split("\\.")[0]);
-        mdmsCriteria.setModuleDetails(moduleDetailList);
-
-        MdmsCriteriaReq mdmsCriteriaReq = new MdmsCriteriaReq();
-        mdmsCriteriaReq.setMdmsCriteria(mdmsCriteria);
-        mdmsCriteriaReq.setRequestInfo(requestInfo);
-
-        return mdmsCriteriaReq;
+        return MdmsCriteriaReqV2.builder()
+                .mdmsCriteria(mdmsCriteria)
+                .requestInfo(requestInfo)
+                .build();
     }
 }

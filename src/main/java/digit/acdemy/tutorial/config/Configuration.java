@@ -15,7 +15,6 @@ import org.springframework.stereotype.Component;
 @Getter
 public class Configuration {
 
-
     // User Config
     @Value("${egov.user.host}")
     private String userHost;

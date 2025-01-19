@@ -10,6 +10,13 @@ CREATE TABLE advocate (
     workflow JSONB,
     documents JSONB,
     auditdetails JSONB,
-    additionaldetails JSONB,
+    createdBy character varying(64),
+    lastModifiedBy character varying(64),
+    createdTime bigint,
+    lastModifiedTime bigint,
     CONSTRAINT unq_advocate UNIQUE (tenantid, applicationnumber)
 );
+
+CREATE INDEX idx_advocate_id ON advocate (id);
+CREATE INDEX idx_advocate_applicationnumber ON advocate (applicationnumber);
+CREATE INDEX idx_advocate_barregistrationnumber ON advocate (barregistrationnumber);
