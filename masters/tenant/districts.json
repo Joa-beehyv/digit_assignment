@@ -1,0 +1,196 @@
+{
+  "tenantId": "br",
+  "moduleName": "tenant",
+  "districts": [
+    {
+      "id": 1,
+      "name": "Araria",
+      "localname": "अररिया"
+    },
+    {
+      "id": 2,
+      "name": "Aurangabad",
+      "localname": "औरंगाबाद"
+    },
+    {
+      "id": 3,
+      "name": "Banka",
+      "localname": "बांका"
+    },
+    {
+      "id": 4,
+      "name": "Begusarai",
+      "localname": "बेगूसराय"
+    },
+    {
+      "id": 5,
+      "name": "Bhagalpur",
+      "localname": "भागलपुर"
+    },
+    {
+      "id": 6,
+      "name": "Bhojpur",
+      "localname": "भोजपुर"
+    },
+    {
+      "id": 7,
+      "name": "Buxar",
+      "localname": "बक्सर"
+    },
+    {
+      "id": 8,
+      "name": "Darbhanga",
+      "localname": "दरभंगा"
+    },
+    {
+      "id": 9,
+      "name": "Gaya",
+      "localname": "गया"
+    },
+    {
+      "id": 10,
+      "name": "Gopalganj",
+      "localname": "गोपालगंज"
+    },
+    {
+      "id": 11,
+      "name": "Jamui",
+      "localname": "जमुई"
+    },
+    {
+      "id": 12,
+      "name": "Jehanabad",
+      "localname": "जहानाबाद"
+    },
+    {
+      "id": 13,
+      "name": "Kaimur (Bhabua)",
+      "localname": "कैमूर ( भभुआ )"
+    },
+    {
+      "id": 14,
+      "name": "Katihar",
+      "localname": "कटिहार"
+    },
+    {
+      "id": 15,
+      "name": "Khagaria",
+      "localname": "खगड़िया"
+    },
+    {
+      "id": 16,
+      "name": "Kishanganj",
+      "localname": "किशनगंज"
+    },
+    {
+      "id": 17,
+      "name": "Lakhisarai",
+      "localname": "लखीसराय"
+    },
+    {
+      "id": 18,
+      "name": "Madhepura",
+      "localname": "मधेपुरा"
+    },
+    {
+      "id": 19,
+      "name": "Madhubani",
+      "localname": "मधुबनी"
+    },
+    {
+      "id": 20,
+      "name": "Munger",
+      "localname": "मुंगेर"
+    },
+    {
+      "id": 21,
+      "name": "Muzaffarpur",
+      "localname": "मुजफ्फरपुर"
+    },
+    {
+      "id": 22,
+      "name": "Nalanda",
+      "localname": "नालंदा"
+    },
+    {
+      "id": 23,
+      "name": "Nawada",
+      "localname": "नवादा"
+    },
+    {
+      "id": 24,
+      "name": "Pashchim Champaran",
+      "localname": "पश्चिम चम्पारण"
+    },
+    {
+      "id": 25,
+      "name": "Patna",
+      "localname": "पटना"
+    },
+    {
+      "id": 26,
+      "name": "Purbi Champaran",
+      "localname": "पूर्वी चंपारण"
+    },
+    {
+      "id": 27,
+      "name": "Purnia",
+      "localname": "पूर्णिया"
+    },
+    {
+      "id": 28,
+      "name": "Rohtas",
+      "localname": "रोहतास"
+    },
+    {
+      "id": 29,
+      "name": "Saharsa",
+      "localname": "सहरसा"
+    },
+    {
+      "id": 30,
+      "name": "Samastipur",
+      "localname": "समस्तीपुर"
+    },
+    {
+      "id": 31,
+      "name": "Saran",
+      "localname": "सारण"
+    },
+    {
+      "id": 32,
+      "name": "Sheikhpura",
+      "localname": "शेखपुरा"
+    },
+    {
+      "id": 33,
+      "name": "Sheohar",
+      "localname": "शिवहर"
+    },
+    {
+      "id": 34,
+      "name": "Sitamarhi",
+      "localname": "सीतामढी"
+    },
+    {
+      "id": 35,
+      "name": "Siwan",
+      "localname": "सिवान"
+    },
+    {
+      "id": 36,
+      "name": "Supaul",
+      "localname": "सुपौल"
+    },
+    {
+      "id": 37,
+      "name": "Vaishali",
+      "localname": "वैशाली"
+    },
+    {
+      "id": 38,
+      "name": "Arwal",
+      "localname": "अरवल"
+    }
+  ]
+}

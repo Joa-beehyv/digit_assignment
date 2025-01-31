@@ -1,0 +1,65 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "key": {
+            "type": "string"
+        },
+        "roleAttributeAccessList": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "roleCode": {
+                        "type": "string"
+                    },
+                    "attributeAccessList": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "attribute": {
+                                    "type": "object",
+                                    "properties": {
+                                        "jsonPath": {
+                                            "type": "string"
+                                        },
+                                        "maskingTechnique": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "additionalProperties": false,
+                                    "required": [
+                                        "jsonPath"
+                                    ]
+                                },
+                                "accessType": {
+                                    "type": "string"
+                                }
+                            },
+                            "additionalProperties": false,
+                            "required": [
+                                "attribute",
+                                "accessType"
+                            ]
+                        }
+                    }
+                },
+                "additionalProperties": false,
+                "required": [
+                    "roleCode",
+                    "attributeAccessList"
+                ]
+            }
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "key",
+        "roleAttributeAccessList"
+    ],
+    "x-unique": [
+        "key"
+    ],
+    "x-ref-schema": []
+}

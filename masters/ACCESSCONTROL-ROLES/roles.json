@@ -1,0 +1,35 @@
+{
+  "tenantId": "joa",
+  "moduleName": "ACCESSCONTROL-ROLES",
+  "roles": [
+    {
+      "code": "ADVOCATE",
+      "name": "Advocate",
+      "description": "Advocate role"
+    },
+    {
+      "code": "APPLY",
+      "name": "Apply"
+    },
+    {
+      "code": "APPROVER",
+      "name": "Approver",
+      "description": "Approves workflow"
+    },
+    {
+      "code": "CLERK",
+      "name": "Clerk",
+      "description": "Advocate clerk"
+    },
+    {
+      "code": "VIEW_WF_STATUS",
+      "name": "View workflow status",
+      "description": "Able to view all workflow status"
+    },
+    {
+      "code": "VIEW_MY_APP_STATUS",
+      "name": "View my workflow status",
+      "description": "Able to view my workflow status"
+    }
+  ]
+}

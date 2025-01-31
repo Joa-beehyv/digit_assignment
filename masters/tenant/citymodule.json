@@ -1,0 +1,51 @@
+{
+  "tenantId": "br",
+  "moduleName": "tenant",
+  "citymodule": [
+    {
+      "module": "PGR",
+      "code": "PGR",
+      "bannerImage": "https://egov-uat-assets.s3.amazonaws.com/PGR.png",
+      "active": true,
+      "order": 2,
+      "tenants": [
+        {
+          "code": "br"
+        }
+      ]
+    },
+    {
+      "module": "DSS",
+      "code": "DSS",
+      "active": true,
+      "order": 6,
+      "tenants": [
+        {
+          "code": "br"
+        }
+      ]
+    },
+    {
+      "module": "HRMS",
+      "code": "HRMS",
+      "active": true,
+      "order": 2,
+      "tenants": [
+        {
+          "code": "br"
+        }
+      ]
+    },
+    {
+      "code": "Workbench",
+      "order": 4,
+      "active": true,
+      "module": "Workbench",
+      "tenants": [
+          {
+              "code": "br"
+          }
+      ]
+  }
+  ]
+}

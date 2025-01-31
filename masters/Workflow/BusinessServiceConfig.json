@@ -1,0 +1,14 @@
+{
+  "tenantId": "br",
+  "moduleName": "Workflow",
+  "BusinessServiceConfig": [
+    {
+      "code": "GRM1",
+      "isStateLevel": true
+    },
+    {
+      "code": "GRM2",
+      "isStateLevel": true
+    }
+  ]
+}

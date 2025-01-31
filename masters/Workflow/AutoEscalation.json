@@ -1,0 +1,136 @@
+{
+  "tenantId": "br",
+  "moduleName": "Workflow",
+  "AutoEscalation": [
+    {
+      "businessService": "GRM1",
+      "module": "pgr-services",
+      "state": "PENDINGFORASSIGNMENT",
+      "action": "ASSIGN",
+      "active": "true",
+      "stateSLA": 0.0,
+      "businessSLA": null,
+      "topic": "pgr-auto-escalation"
+    },
+    {
+      "businessService": "GRM1",
+      "module": "pgr-services",
+      "state": "PENDINGATL1",
+      "action": "ESCALATE",
+      "active": "true",
+      "stateSLA": 0.0,
+      "businessSLA": null,
+      "topic": "pgr-auto-escalation"
+    },
+    {
+      "businessService": "GRM1",
+      "module": "pgr-services",
+      "state": "PENDINGATL2",
+      "action": "ESCALATE",
+      "active": "true",
+      "stateSLA": 0.0,
+      "businessSLA": null,
+      "topic": "pgr-auto-escalation"
+    },
+    {
+      "businessService": "GRM1",
+      "module": "pgr-services",
+      "state": "PENDINGATL3",
+      "action": "ESCALATE",
+      "active": "true",
+      "stateSLA": 0.0,
+      "businessSLA": null,
+      "topic": "pgr-auto-escalation"
+    },
+    {
+      "businessService": "GRM1",
+      "module": "pgr-services",
+      "state": "REOPENEDATL1",
+      "action": "REASSIGN",
+      "active": "true",
+      "stateSLA": 0.0,
+      "businessSLA": null,
+      "topic": "pgr-auto-escalation"
+    },
+    {
+      "businessService": "GRM1",
+      "module": "pgr-services",
+      "state": "REOPENEDATL2",
+      "action": "REASSIGN",
+      "active": "true",
+      "stateSLA": 0.0,
+      "businessSLA": null,
+      "topic": "pgr-auto-escalation"
+    },
+    {
+      "businessService": "GRM1",
+      "module": "pgr-services",
+      "state": "REOPENEDATL3",
+      "action": "REASSIGN",
+      "active": "true",
+      "stateSLA": 0.0,
+      "businessSLA": null,
+      "topic": "pgr-auto-escalation"
+    },
+    {
+      "businessService": "GRM2",
+      "module": "pgr-services",
+      "state": "PENDINGFORASSIGNMENT",
+      "action": "ASSIGN",
+      "active": "true",
+      "stateSLA": 0.0,
+      "businessSLA": null,
+      "topic": "pgr-auto-escalation"
+    },
+    {
+      "businessService": "GRM2",
+      "module": "pgr-services",
+      "state": "PENDINGATL1",
+      "action": "ESCALATE",
+      "active": "true",
+      "stateSLA": 0.0,
+      "businessSLA": null,
+      "topic": "pgr-auto-escalation"
+    },
+    {
+      "businessService": "GRM2",
+      "module": "pgr-services",
+      "state": "PENDINGATL2",
+      "action": "ESCALATE",
+      "active": "true",
+      "stateSLA": 0.0,
+      "businessSLA": null,
+      "topic": "pgr-auto-escalation"
+    },
+    {
+      "businessService": "GRM2",
+      "module": "pgr-services",
+      "state": "REOPENEDATL1",
+      "action": "REASSIGN",
+      "active": "true",
+      "stateSLA": 0.0,
+      "businessSLA": null,
+      "topic": "pgr-auto-escalation"
+    },
+    {
+      "businessService": "GRM2",
+      "module": "pgr-services",
+      "state": "REOPENEDATL2",
+      "action": "REASSIGN",
+      "active": "true",
+      "stateSLA": 0.0,
+      "businessSLA": null,
+      "topic": "pgr-auto-escalation"
+    },
+    {
+      "businessService": "GRM9",
+      "module": "pgr-services",
+      "state": "PENDINGFORASSIGNMENT",
+      "action": "ASSIGN",
+      "active": "true",
+      "stateSLA": 0.0,
+      "businessSLA": null,
+      "topic": "pgr-auto-escalation"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "code": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "logoId": {
+            "type": "string"
+        },
+        "imageId": {
+            "type": "string"
+        },
+        "domainUrl": {
+            "type": "null"
+        },
+        "type": {
+            "type": "string"
+        },
+        "twitterUrl": {
+            "type": "null"
+        },
+        "facebookUrl": {
+            "type": "null"
+        },
+        "emailId": {
+            "type": "null"
+        },
+        "integrateProjectService": {
+            "type": "boolean"
+        },
+        "city": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "localName": {
+                    "type": "null"
+                },
+                "districtCode": {
+                    "type": "null"
+                },
+                "districtName": {
+                    "type": "null"
+                },
+                "regionName": {
+                    "type": "null"
+                },
+                "ulbGrade": {
+                    "type": "null"
+                },
+                "longitude": {
+                    "type": "null"
+                },
+                "latitude": {
+                    "type": "null"
+                },
+                "shapeFileLocation": {
+                    "type": "null"
+                },
+                "captcha": {
+                    "type": "null"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "ddrName": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "name",
+                "code",
+                "ddrName"
+            ]
+        },
+        "address": {
+            "type": "null"
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "code",
+        "name",
+        "description",
+        "logoId",
+        "imageId",
+        "type",
+        "integrateProjectService",
+        "city"
+    ],
+    "x-unique": [
+        "code"
+    ],
+    "x-ref-schema": []
+}

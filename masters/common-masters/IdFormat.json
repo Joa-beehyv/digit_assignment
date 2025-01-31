@@ -1,0 +1,14 @@
+{
+  "tenantId": "joa",
+  "moduleName": "common-masters",
+  "IdFormat": [
+    {
+      "format": "ADVOC_[SEQ_ADVOC][d{10}]_[cy:yyyy]",
+      "idname": "advocate.id"
+    },
+    {
+      "format": "ADVOC_CLERK_[SEQ_ADVOC_CLERK][d{10}]_[cy:yyyy]",
+      "idname": "advocate.clerk.id"
+    }
+  ]
+}

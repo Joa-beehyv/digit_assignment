@@ -1,0 +1,44 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "businessService": {
+            "type": "string"
+        },
+        "module": {
+            "type": "string"
+        },
+        "state": {
+            "type": "string"
+        },
+        "action": {
+            "type": "string"
+        },
+        "active": {
+            "type": "string"
+        },
+        "stateSLA": {
+            "type": "number"
+        },
+        "businessSLA": {
+            "type": "null"
+        },
+        "topic": {
+            "type": "string"
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "businessService",
+        "module",
+        "state",
+        "action",
+        "active",
+        "stateSLA",
+        "topic"
+    ],
+    "x-unique": [
+        "state"
+    ],
+    "x-ref-schema": []
+}

@@ -1,0 +1,21 @@
+{
+  "tenantId": "joa",
+  "moduleName": "common-masters",
+  "AdvocateType": [
+    {
+      "code": "Advocate General",
+      "displayName": "Advocate General",
+      "isActive": true
+    },
+    {
+      "code": "Public Prosecutor",
+      "displayName": "Public Prosecutor",
+      "isActive": true
+    },
+    {
+      "code": "Standing Counsel",
+      "displayName": "Standing Counsel",
+      "isActive": true
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "tenantId": {
+            "type": "string"
+        },
+        "businessService": {
+            "type": "string"
+        },
+        "business": {
+            "type": "string"
+        },
+        "businessServiceSla": {
+            "type": "integer"
+        },
+        "states": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "tenantId": {
+                        "type": "string"
+                    },
+                    "sla": {
+                        "type": ["integer", "null"]
+                    },
+                    "state": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "applicationStatus": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "docUploadRequired": {
+                        "type": "boolean"
+                    },
+                    "isStartState": {
+                        "type": "boolean"
+                    },
+                    "isTerminateState": {
+                        "type": "boolean"
+                    },
+                    "isStateUpdatable": {
+                        "type": "boolean"
+                    },
+                    "actions": {
+                        "anyOf": [
+                            {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "tenantId": {
+                                            "type": "string"
+                                        },
+                                        "action": {
+                                            "type": "string"
+                                        },
+                                        "nextState": {
+                                            "type": "string"
+                                        },
+                                        "roles": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "active": {
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "additionalProperties": false
+            }
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "tenantId",
+        "businessService",
+        "business",
+        "businessServiceSla",
+        "states"
+    ],
+    "x-unique": [
+        "tenantId", "businessService"
+    ],
+    "x-ref-schema": []
+}

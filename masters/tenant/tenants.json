@@ -1,0 +1,34 @@
+﻿{
+  "tenantId": "br",
+  "moduleName": "tenant",
+  "tenants": [
+    {
+      "code": "br",
+      "name": "Bihar",
+      "description": "Bihar DFS",
+      "logoId": "https://s3.ap-south-1.amazonaws.com/pg-egov-assets/pg.citye/logo.png",
+      "imageId": "",
+      "domainUrl": null,
+      "type": "CITY",
+      "twitterUrl": null,
+      "facebookUrl": null,
+      "emailId": null,
+      "integrateProjectService": true,
+      "city": {
+        "name": "",
+        "localName": null,
+        "districtCode": null,
+        "districtName": null,
+        "regionName": null,
+        "ulbGrade": null,
+        "longitude": null,
+        "latitude": null,
+        "shapeFileLocation": null,
+        "captcha": null,
+        "code": "br",
+        "ddrName": ""
+      },
+      "address": null
+    }
+  ]
+}

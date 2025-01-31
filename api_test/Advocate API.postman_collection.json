@@ -1,0 +1,1992 @@
+{
+	"info": {
+		"_postman_id": "12971428-5564-49d4-9cf4-4c7fbeb65b0a",
+		"name": "Advocate API",
+		"description": "Postman collection for managing Advocate resources.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35401524"
+	},
+	"item": [
+		{
+			"name": "access-control",
+			"item": [
+				{
+					"name": "create-role",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"RequestInfo\": { \n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": 1674662400000,\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"id\": 281,\n                    \"name\": \"Employee\"\n                }\n            ]\n        }\n    },\n    \"roles\": [\n        {\n            \"name\": \"Advocate\",\n            \"code\": \"ADVOCATE\",\n            \"tenantId\": \"{{tenantid}}\",\n            \"description\": \"Register, View/Manage Cases, Add Clerks, View Application Status.\"\n        },\n        {\n            \"name\": \"Advocate Clerk\",\n            \"code\": \"ADVOCATE_CLERK\",\n            \"tenantId\": \"{{tenantid}}\",\n            \"description\": \"Assist Advocates, Access Assigned Case Files.\"\n        },\n        {\n            \"name\": \"Nyay Mitra\",\n            \"code\": \"NYAY_MITRA\",\n            \"tenantId\": \"{{tenantid}}\",\n            \"description\": \"Approve/Reject Registrations, Add Remarks for Rejections, View Registration Details.\"\n        },\n        {\n            \"name\": \"System\",\n            \"code\": \"SYSTEM\",\n            \"tenantId\": \"{{tenantid}}\",\n            \"description\": \"Auto-approve Litigants, Generate IDs, Trigger Notifications.\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{host-accesscontrol-role}}/access/v1/roles/_create",
+							"host": [
+								"{{host-accesscontrol-role}}"
+							],
+							"path": [
+								"access",
+								"v1",
+								"roles",
+								"_create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-action",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"advocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": 1674662400000,\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"id\": 281,\n                    \"name\": \"Employee\"\n                }\n            ]\n        }\n    },\n    \"actions\": [\n        {\n            \"id\": 1,\n            \"name\": \"Register Advocate\",\n            \"url\": \"/advocate/v1/_create\",\n            \"displayName\": \"Register Advocate\",\n            \"enabled\": true,\n            \"orderNumber\": 1,\n            \"createdBy\": 1,\n            \"lastModifiedBy\": 1,\n            \"tenantid\": \"default\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Register Advocate Clerk\",\n            \"url\": \"/registerclerk\",\n            \"displayName\": \"Register Advocate Clerk\",\n            \"enabled\": true,\n            \"orderNumber\": 2,\n            \"createdBy\": 1,\n            \"lastModifiedBy\": 1,\n            \"tenantid\": \"default\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Approve Registration\",\n            \"url\": \"/approveregistration\",\n            \"displayName\": \"Approve Registration\",\n            \"enabled\": true,\n            \"orderNumber\": 3,\n            \"createdBy\": 1,\n            \"lastModifiedBy\": 1,\n            \"tenantid\": \"default\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Reject Registration\",\n            \"url\": \"/rejectregistration\",\n            \"displayName\": \"Reject Registration\",\n            \"enabled\": true,\n            \"orderNumber\": 4,\n            \"createdBy\": 1,\n            \"lastModifiedBy\": 1,\n            \"tenantid\": \"default\"\n        },\n        {\n            \"id\": 5,\n            \"name\": \"View Registration Status\",\n            \"url\": \"/viewregistrationstatus\",\n            \"displayName\": \"View Registration Status\",\n            \"enabled\": true,\n            \"orderNumber\": 5,\n            \"createdBy\": 1,\n            \"lastModifiedBy\": 1,\n            \"tenantid\": \"default\"\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Create Case\",\n            \"url\": \"/createcase\",\n            \"displayName\": \"Create Case\",\n            \"enabled\": true,\n            \"orderNumber\": 6,\n            \"createdBy\": 1,\n            \"lastModifiedBy\": 1,\n            \"tenantid\": \"default\"\n        },\n        {\n            \"id\": 7,\n            \"name\": \"View Case\",\n            \"url\": \"/viewcase\",\n            \"displayName\": \"View Case\",\n            \"enabled\": true,\n            \"orderNumber\": 7,\n            \"createdBy\": 1,\n            \"lastModifiedBy\": 1,\n            \"tenantid\": \"default\"\n        },\n        {\n            \"id\": 8,\n            \"name\": \"Perform Actions on Case\",\n            \"url\": \"/performactions\",\n            \"displayName\": \"Perform Actions on Case\",\n            \"enabled\": true,\n            \"orderNumber\": 8,\n            \"createdBy\": 1,\n            \"lastModifiedBy\": 1,\n            \"tenantid\": \"default\"\n        },\n        {\n            \"id\": 9,\n            \"name\": \"Verify Identity\",\n            \"url\": \"/verifyidentity\",\n            \"displayName\": \"Verify Identity\",\n            \"enabled\": true,\n            \"orderNumber\": 9,\n            \"createdBy\": 1,\n            \"lastModifiedBy\": 1,\n            \"tenantid\": \"default\"\n        },\n        {\n            \"id\": 10,\n            \"name\": \"Send Notification\",\n            \"url\": \"/sendnotification\",\n            \"displayName\": \"Send Notification\",\n            \"enabled\": true,\n            \"orderNumber\": 10,\n            \"createdBy\": 1,\n            \"lastModifiedBy\": 1,\n            \"tenantid\": \"default\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host-accesscontrol-role}}/access/v1/action/_create",
+							"host": [
+								"{{host-accesscontrol-role}}"
+							],
+							"path": [
+								"access",
+								"v1",
+								"action",
+								"_create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "mdms-v2",
+			"item": [
+				{
+					"name": "schema",
+					"item": [
+						{
+							"name": "ACCESSCONTROL-ACTIONS-TEST.actions-test",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"SchemaDefinition\": {\n        \"tenantId\": \"default\",\n        \"code\": \"ACCESSCONTROL-ACTIONS-TEST.actions-test\",\n        \"description\": \"Master data for Id  format\",\n        \"definition\": {\n            \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n            \"type\": \"object\",\n            \"properties\": {\n                \"id\": {\n                    \"type\": \"integer\"\n                },\n                \"name\": {\n                    \"type\": \"string\"\n                },\n                \"url\": {\n                    \"type\": \"string\"\n                },\n                \"displayName\": {\n                    \"type\": \"string\"\n                },\n                \"orderNumber\": {\n                    \"type\": \"integer\"\n                },\n                \"parentModule\": {\n                    \"type\": \"string\"\n                },\n                \"enabled\": {\n                    \"type\": \"boolean\"\n                },\n                \"serviceCode\": {\n                    \"type\": \"string\"\n                },\n                \"code\": {\n                    \"type\": \"string\"\n                },\n                \"path\": {\n                    \"type\": \"string\"\n                }\n            },\n            \"additionalProperties\": false,\n            \"required\": [\n                \"id\",\n                \"name\",\n                \"url\",\n                \"displayName\",\n                \"orderNumber\",\n                \"enabled\",\n                \"serviceCode\",\n                \"code\",\n                \"path\"\n            ],\n            \"x-unique\": [\n                \"id\"\n            ]\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/schema/v1/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"schema",
+										"v1",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ACCESSCONTROL-ROLEACTIONS.roleactions",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"SchemaDefinition\": {\n        \"tenantId\": \"default\",\n        \"code\": \"ACCESSCONTROL-ROLEACTIONS.roleactions\",\n        \"description\": \"Master data for Id  format\",\n        \"definition\": {\n            \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n            \"type\": \"object\",\n            \"properties\": {\n                \"rolecode\": {\n                    \"type\": \"string\"\n                },\n                \"actionid\": {\n                    \"type\": \"integer\"\n                },\n                \"actioncode\": {\n                    \"type\": \"string\"\n                },\n                \"tenantid\": {\n                    \"type\": \"string\"\n                }\n            },\n            \"additionalProperties\": false,\n            \"required\": [\n                \"rolecode\",\n                \"actionid\",\n                \"actioncode\",\n                \"tenantid\"\n            ],\n            \"x-unique\": [\n                \"rolecode\",\n                \"actionid\"\n            ]\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/schema/v1/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"schema",
+										"v1",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ACCESSCONTROL-ROLES.roles",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"SchemaDefinition\": {\n        \"tenantId\": \"default\",\n        \"code\": \"ACCESSCONTROL-ROLES.roles\",\n        \"description\": \"Master data for Id  format\",\n        \"definition\": {\n            \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n            \"type\": \"object\",\n            \"properties\": {\n                \"code\": {\n                    \"type\": \"string\"\n                },\n                \"name\": {\n                    \"type\": \"string\"\n                },\n                \"description\": {\n                    \"type\": \"string\"\n                }\n            },\n            \"additionalProperties\": false,\n            \"required\": [\n                \"code\",\n                \"name\",\n                \"description\"\n            ],\n            \"x-unique\": [\n                \"code\"\n            ]\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/schema/v1/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"schema",
+										"v1",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "common-masters.IdFormat",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"SchemaDefinition\": {\n        \"tenantId\": \"default\",\n        \"code\": \"common-masters.IdFormat\",\n        \"description\": \"Master data for Id  format\",\n        \"definition\": {\n            \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n            \"type\": \"object\",\n            \"properties\": {\n                \"format\": {\n                    \"type\": \"string\"\n                },\n                \"idname\": {\n                    \"type\": \"string\"\n                }\n            },\n            \"additionalProperties\": false,\n            \"required\": [\n                \"format\",\n                \"idname\"\n            ],\n            \"x-unique\": [\n                \"idname\"\n            ]\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/schema/v1/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"schema",
+										"v1",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Workflow.Workflow.BusinessServiceMasterConfig",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"SchemaDefinition\": {\n        \"tenantId\": \"default\",\n        \"code\": \"Workflow.BusinessServiceMasterConfig\",\n        \"description\": \"Master data for Id  format\",\n        \"definition\": {\n            \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n            \"type\": \"object\",\n            \"properties\": {\n                \"businessService\": {\n                    \"type\": \"string\"\n                },\n                \"active\": {\n                    \"type\": \"string\"\n                },\n                \"isStatelevel\": {\n                    \"type\": \"string\"\n                }\n            },\n            \"additionalProperties\": false,\n            \"required\": [\n                \"businessService\",\n                \"active\",\n                \"isStatelevel\"\n            ],\n            \"x-unique\": [\n                \"businessService\"\n            ]\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/schema/v1/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"schema",
+										"v1",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Workflow.Workflow.BusinessService",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"SchemaDefinition\": {\n        \"tenantId\": \"default\",\n        \"code\": \"Workflow.BusinessService\",\n        \"description\": \"Master data for Id  format\",\n        \"definition\": {\n            \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n            \"type\": \"object\",\n            \"properties\": {\n                \"tenantId\": {\n                    \"type\": \"string\"\n                },\n                \"businessService\": {\n                    \"type\": \"string\"\n                },\n                \"business\": {\n                    \"type\": \"string\"\n                },\n                \"businessServiceSla\": {\n                    \"type\": \"integer\"\n                },\n                \"states\": {\n                    \"type\": \"array\",\n                    \"items\": {\n                        \"type\": \"object\",\n                        \"properties\": {\n                            \"tenantId\": {\n                                \"type\": \"string\"\n                            },\n                            \"sla\": {\n                                \"type\": [\n                                    \"integer\",\n                                    \"null\"\n                                ]\n                            },\n                            \"state\": {\n                                \"type\": [\n                                    \"null\",\n                                    \"string\"\n                                ]\n                            },\n                            \"applicationStatus\": {\n                                \"type\": [\n                                    \"null\",\n                                    \"string\"\n                                ]\n                            },\n                            \"docUploadRequired\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"isStartState\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"isTerminateState\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"isStateUpdatable\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"actions\": {\n                                \"anyOf\": [\n                                    {\n                                        \"type\": \"array\",\n                                        \"items\": {\n                                            \"type\": \"object\",\n                                            \"properties\": {\n                                                \"tenantId\": {\n                                                    \"type\": \"string\"\n                                                },\n                                                \"action\": {\n                                                    \"type\": \"string\"\n                                                },\n                                                \"nextState\": {\n                                                    \"type\": \"string\"\n                                                },\n                                                \"roles\": {\n                                                    \"type\": \"array\",\n                                                    \"items\": {\n                                                        \"type\": \"string\"\n                                                    }\n                                                },\n                                                \"active\": {\n                                                    \"type\": \"boolean\"\n                                                }\n                                            },\n                                            \"additionalProperties\": false\n                                        }\n                                    },\n                                    {\n                                        \"type\": \"null\"\n                                    }\n                                ]\n                            }\n                        },\n                        \"additionalProperties\": false\n                    }\n                }\n            },\n            \"additionalProperties\": false,\n            \"required\": [\n                \"tenantId\",\n                \"businessService\",\n                \"business\",\n                \"businessServiceSla\",\n                \"states\"\n            ],\n            \"x-unique\": [\n                \"tenantId\",\n                \"businessService\"\n            ],\n            \"x-ref-schema\": []\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/schema/v1/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"schema",
+										"v1",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Workflow.Workflow.BusinessServiceConfig",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"SchemaDefinition\": {\n        \"tenantId\": \"default\",\n        \"code\": \"Workflow.BusinessServiceConfig\",\n        \"description\": \"Master data for Id  format\",\n        \"definition\": {\n            \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n            \"type\": \"object\",\n            \"properties\": {\n                \"code\": {\n                    \"type\": \"string\"\n                },\n                \"isStateLevel\": {\n                    \"type\": \"boolean\"\n                }\n            },\n            \"additionalProperties\": false,\n            \"required\": [\n                \"code\",\n                \"isStateLevel\"\n            ],\n            \"x-unique\": [\n                \"code\"\n            ],\n            \"x-ref-schema\": []\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/schema/v1/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"schema",
+										"v1",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Channel.channelList",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"SchemaDefinition\": {\n        \"tenantId\": \"default\",\n        \"code\": \"Channel.channelList\",\n        \"description\": \"Channel list\",\n        \"definition\": {\n            \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n            \"type\": \"object\",\n            \"properties\": {\n                \"businessService\": {\n                    \"type\": \"string\"\n                },\n                \"module\": {\n                    \"type\": \"string\"\n                },\n                \"action\": {\n                    \"type\": \"string\"\n                },\n                \"channelNames\": {\n                    \"type\": \"array\",\n                    \"items\": {\n                        \"type\": \"string\"\n                    }\n                }\n            },\n            \"additionalProperties\": false,\n            \"required\": [\n                \"businessService\",\n                \"module\",\n                \"action\",\n                \"channelNames\"\n            ],\n            \"x-unique\": [\n                \"action\"\n            ]\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/schema/v1/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"schema",
+										"v1",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "data",
+					"item": [
+						{
+							"name": "advocate-idFormat",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"common-masters.IdFormat\",\n        \"data\": {\n            \"format\": \"ADVOC_[SEQ_ADVOC]_[cy:yyyy]\",\n            \"idname\": \"advocate.id\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "advocate.clerk-idFormat",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"common-masters.IdFormat\",\n        \"data\": {\n            \"format\": \"ADVOC_CLERK_[SEQ_ADVOC_CLERK]_[cy:yyyy]\",\n            \"idname\": \"advocate.clerk.id\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "roles-advocate",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ROLES.roles\",\n        \"data\": {\n            \"name\": \"Advocate\",\n            \"code\": \"ADVOCATE\",\n            \"description\": \"Register, View/Manage Cases, Add Clerks, View Application Status.\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "roles-advocate-clerk",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ROLES.roles\",\n        \"data\": {\n            \"name\": \"Advocate Clerk\",\n            \"code\": \"ADVOCATE_CLERK\",\n            \"description\": \"Assist Advocates, Access Assigned Case Files.\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "roles-approver",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ROLES.roles\",\n        \"data\": {\n            \"name\": \"Approver\",\n            \"code\": \"APPROVER\",\n            \"description\": \"Approve/Reject Registrations, Add Remarks for Rejections, View Registration Details.\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "roles-system",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ROLES.roles\",\n        \"data\": {\n            \"name\": \"System\",\n            \"code\": \"SYSTEM\",\n            \"description\": \"Auto-approve Litigants, Generate IDs, Trigger Notifications.\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "roles-super-user",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ROLES.roles\",\n        \"data\": {\n            \"code\": \"SUPERUSER\",\n            \"name\": \"Super User\",\n            \"description\": \"Super User. Can change all master data and has access to all the system screens.\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "actions-1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ACTIONS-TEST.actions-test\",\n        \"data\": {\n            \"id\": 1,\n            \"name\": \"Register Advocate\",\n            \"url\": \"/advocate/v1/_create\",\n            \"displayName\": \"Register Advocate\",\n            \"orderNumber\": 1,\n            \"parentModule\": \"\",\n            \"enabled\": true,\n            \"serviceCode\": \"Advocate Registration\",\n            \"code\": \"null\",\n            \"path\": \"\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "actions-2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ACTIONS-TEST.actions-test\",\n        \"data\": {\n            \"id\": 2,\n            \"name\": \"Update Registration\",\n            \"url\": \"/advocate/v1/_update\",\n            \"displayName\": \"Update Registration\",\n            \"orderNumber\": 2,\n            \"parentModule\": \"\",\n            \"enabled\": true,\n            \"serviceCode\": \"Advocate Registration\",\n            \"code\": \"null\",\n            \"path\": \"\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "actions-3",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ACTIONS-TEST.actions-test\",\n        \"data\": {\n            \"id\": 3,\n            \"name\": \"View Registration Status/Details\",\n            \"url\": \"/advocate/v1/_search\",\n            \"displayName\": \"View Registration Status\",\n            \"orderNumber\": 3,\n            \"parentModule\": \"\",\n            \"enabled\": true,\n            \"serviceCode\": \"Advocate Registration\",\n            \"code\": \"null\",\n            \"path\": \"\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "actions-4",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ACTIONS-TEST.actions-test\",\n        \"data\": {\n            \"id\": 4,\n            \"name\": \"Create Case\",\n            \"url\": \"/case/v1/_create\",\n            \"displayName\": \"Create Case\",\n            \"orderNumber\": 4,\n            \"parentModule\": \"\",\n            \"enabled\": true,\n            \"serviceCode\": \"Case Management\",\n            \"code\": \"null\",\n            \"path\": \"\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "actions-5",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ACTIONS-TEST.actions-test\",\n        \"data\": {\n            \"id\": 5,\n            \"name\": \"View Case\",\n            \"url\": \"/case/v1/_search\",\n            \"displayName\": \"View Case\",\n            \"orderNumber\": 5,\n            \"parentModule\": \"\",\n            \"enabled\": true,\n            \"serviceCode\": \"Case Management\",\n            \"code\": \"null\",\n            \"path\": \"Case Management.Case Operations.View Case\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "actions-6",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ACTIONS-TEST.actions-test\",\n        \"data\": {\n            \"id\": 6,\n            \"name\": \"Perform Actions on Case\",\n            \"url\": \"/app/case/perform-actions.html\",\n            \"displayName\": \"Perform Actions on Case\",\n            \"orderNumber\": 6,\n            \"parentModule\": \"\",\n            \"enabled\": true,\n            \"serviceCode\": \"Case Management\",\n            \"code\": \"null\",\n            \"path\": \"\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "actions-7",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ACTIONS-TEST.actions-test\",\n        \"data\": {\n            \"id\": 7,\n            \"name\": \"Send Notification\",\n            \"url\": \"/notification/send-notification\",\n            \"displayName\": \"Send Notification\",\n            \"orderNumber\": 7,\n            \"parentModule\": \"\",\n            \"enabled\": true,\n            \"serviceCode\": \"Notification Management\",\n            \"code\": \"null\",\n            \"path\": \"\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "actions-8",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ACTIONS-TEST.actions-test\",\n        \"data\": {\n            \"id\": 8,\n            \"name\": \"Create OTP\",\n            \"url\": \"/otp/v1/_create\",\n            \"displayName\": \"Create Otp\",\n            \"orderNumber\": 0,\n            \"parentModule\": \"247\",\n            \"enabled\": false,\n            \"serviceCode\": \"OTP\",\n            \"code\": \"null\",\n            \"path\": \"Otp.CreateOtp\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "actions-9",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ACTIONS-TEST.actions-test\",\n        \"data\": {\n            \"id\": 9,\n            \"name\": \"ValidateOtp\",\n            \"url\": \"/otp/v1/_validate\",\n            \"displayName\": \"Validate Otp\",\n            \"orderNumber\": 0,\n            \"parentModule\": \"\",\n            \"enabled\": false,\n            \"serviceCode\": \"OTP\",\n            \"code\": \"null\",\n            \"path\": \"Otp.ValidateOtp\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "actions-10",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ACTIONS-TEST.actions-test\",\n        \"data\": {\n            \"id\": 10,\n            \"name\": \"Workflow search\",\n            \"url\": \"/egov-workflow-v2/egov-wf/process/_search\",\n            \"parentModule\": \"\",\n            \"displayName\": \"Workflow search\",\n            \"orderNumber\": 0,\n            \"enabled\": true,\n            \"serviceCode\": \"egov-workflow-v2\",\n            \"code\": \"null\",\n            \"path\": \"\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "actions-11",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ACTIONS-TEST.actions-test\",\n        \"data\": {\n            \"id\": 11,\n            \"name\": \"Workflow transition\",\n            \"url\": \"/egov-workflow-v2/egov-wf/process/_transition\",\n            \"parentModule\": \"\",\n            \"displayName\": \"Workflow transition\",\n            \"orderNumber\": 0,\n            \"enabled\": true,\n            \"serviceCode\": \"egov-workflow-v2\",\n            \"code\": \"null\",\n            \"path\": \"\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "actions-12",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ACTIONS-TEST.actions-test\",\n        \"data\": {\n            \"id\": 12,\n            \"name\": \"BusinessService Create\",\n            \"url\": \"/egov-workflow-v2/egov-wf/businessservice/v2/_create\",\n            \"parentModule\": \"\",\n            \"displayName\": \"BusinessService Create\",\n            \"orderNumber\": 0,\n            \"enabled\": true,\n            \"serviceCode\": \"egov-workflow-v2\",\n            \"code\": \"null\",\n            \"path\": \"\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "actions-13",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ACTIONS-TEST.actions-test\",\n        \"data\": {\n            \"id\": 13,\n            \"name\": \"BusinessService Update\",\n            \"url\": \"/egov-workflow-v2/egov-wf/businessservice/v2/_update\",\n            \"parentModule\": \"\",\n            \"displayName\": \"BusinessService Update\",\n            \"orderNumber\": 0,\n            \"enabled\": true,\n            \"serviceCode\": \"egov-workflow-v2\",\n            \"code\": \"null\",\n            \"path\": \"\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "actions-14",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ACTIONS-TEST.actions-test\",\n        \"data\": {\n            \"id\": 14,\n            \"name\": \"BusinessService Search\",\n            \"url\": \"/egov-workflow-v2/egov-wf/businessservice/v2/_search\",\n            \"parentModule\": \"\",\n            \"displayName\": \"BusinessService Search\",\n            \"orderNumber\": 0,\n            \"enabled\": true,\n            \"serviceCode\": \"egov-workflow-v2\",\n            \"code\": \"null\",\n            \"path\": \"\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "actions-15",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ACTIONS-TEST.actions-test\",\n        \"data\": {\n            \"id\": 15,\n            \"name\": \"BusinessService Search\",\n            \"url\": \"/egov-workflow-v2/egov-wf/businessservice/_create\",\n            \"parentModule\": \"\",\n            \"displayName\": \"BusinessService Search\",\n            \"orderNumber\": 0,\n            \"enabled\": true,\n            \"serviceCode\": \"egov-workflow-v2\",\n            \"code\": \"null\",\n            \"path\": \"\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "actions-16",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ACTIONS-TEST.actions-test\",\n        \"data\": {\n            \"id\": 16,\n            \"name\": \"BusinessService Search\",\n            \"url\": \"/egov-workflow-v2/egov-wf/businessservice/_update\",\n            \"parentModule\": \"\",\n            \"displayName\": \"BusinessService Search\",\n            \"orderNumber\": 0,\n            \"enabled\": true,\n            \"serviceCode\": \"egov-workflow-v2\",\n            \"code\": \"null\",\n            \"path\": \"\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "actions-17",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ACTIONS-TEST.actions-test\",\n        \"data\": {\n            \"id\": 17,\n            \"name\": \"BusinessService Search\",\n            \"url\": \"/egov-workflow-v2/egov-wf/businessservice/_search\",\n            \"parentModule\": \"\",\n            \"displayName\": \"BusinessService Search\",\n            \"orderNumber\": 0,\n            \"enabled\": true,\n            \"serviceCode\": \"egov-workflow-v2\",\n            \"code\": \"null\",\n            \"path\": \"\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "rolaeactions-1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ROLEACTIONS.roleactions\",\n        \"data\": {\n            \"rolecode\": \"ADVOCATE\",\n            \"actionid\": 1,\n            \"actioncode\": \"\",\n            \"tenantid\": \"default\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "rolaeactions-3",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ROLEACTIONS.roleactions\",\n        \"data\": {\n            \"rolecode\": \"ADVOCATE\",\n            \"actionid\": 3,\n            \"actioncode\": \"\",\n            \"tenantid\": \"default\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "rolaeactions-4",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ROLEACTIONS.roleactions\",\n        \"data\": {\n            \"rolecode\": \"ADVOCATE\",\n            \"actionid\": 4,\n            \"actioncode\": \"\",\n            \"tenantid\": \"default\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "rolaeactions-5",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ROLEACTIONS.roleactions\",\n        \"data\": {\n            \"rolecode\": \"ADVOCATE\",\n            \"actionid\": 5,\n            \"actioncode\": \"\",\n            \"tenantid\": \"default\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "rolaeactions-6",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ROLEACTIONS.roleactions\",\n        \"data\": {\n            \"rolecode\": \"ADVOCATE\",\n            \"actionid\": 6,\n            \"actioncode\": \"\",\n            \"tenantid\": \"default\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "rolaeactions-2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ROLEACTIONS.roleactions\",\n        \"data\": {\n            \"rolecode\": \"ADVOCATE\",\n            \"actionid\": 2,\n            \"actioncode\": \"\",\n            \"tenantid\": \"default\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "rolaeactions-3A",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ROLEACTIONS.roleactions\",\n        \"data\": {\n            \"rolecode\": \"APPROVER\",\n            \"actionid\": 3,\n            \"actioncode\": \"\",\n            \"tenantid\": \"default\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "rolaeactions-10",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ROLEACTIONS.roleactions\",\n        \"data\": {\n            \"rolecode\": \"APPROVER\",\n            \"actionid\": 10,\n            \"actioncode\": \"\",\n            \"tenantid\": \"default\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "rolaeactions-11",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ROLEACTIONS.roleactions\",\n        \"data\": {\n            \"rolecode\": \"APPROVER\",\n            \"actionid\": 11,\n            \"actioncode\": \"\",\n            \"tenantid\": \"default\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "rolaeactions-12",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ROLEACTIONS.roleactions\",\n        \"data\": {\n            \"rolecode\": \"APPROVER\",\n            \"actionid\": 12,\n            \"actioncode\": \"\",\n            \"tenantid\": \"default\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "rolaeactions-13",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ROLEACTIONS.roleactions\",\n        \"data\": {\n            \"rolecode\": \"APPROVER\",\n            \"actionid\": 13,\n            \"actioncode\": \"\",\n            \"tenantid\": \"default\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "rolaeactions-14",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ROLEACTIONS.roleactions\",\n        \"data\": {\n            \"rolecode\": \"APPROVER\",\n            \"actionid\": 14,\n            \"actioncode\": \"\",\n            \"tenantid\": \"default\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "rolaeactions-15",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ROLEACTIONS.roleactions\",\n        \"data\": {\n            \"rolecode\": \"APPROVER\",\n            \"actionid\": 15,\n            \"actioncode\": \"\",\n            \"tenantid\": \"default\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "rolaeactions-16",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ROLEACTIONS.roleactions\",\n        \"data\": {\n            \"rolecode\": \"APPROVER\",\n            \"actionid\": 16,\n            \"actioncode\": \"\",\n            \"tenantid\": \"default\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "rolaeactions-17",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ROLEACTIONS.roleactions\",\n        \"data\": {\n            \"rolecode\": \"SUPERUSER\",\n            \"actionid\": 17,\n            \"actioncode\": \"\",\n            \"tenantid\": \"default\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "rolaeactions-8",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ROLEACTIONS.roleactions\",\n        \"data\": {\n            \"rolecode\": \"SUPERUSER\",\n            \"actionid\": 8,\n            \"actioncode\": \"\",\n            \"tenantid\": \"default\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "rolaeactions-9",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"ACCESSCONTROL-ROLEACTIONS.roleactions\",\n        \"data\": {\n            \"rolecode\": \"SUPERUSER\",\n            \"actionid\": 9,\n            \"actioncode\": \"\",\n            \"tenantid\": \"default\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Workflow.BusinessServiceMasterConfig",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"Workflow.BusinessServiceMasterConfig\",\n        \"data\": {\n            \"businessService\": \"ADVOCATE\",\n            \"active\": \"true\",\n            \"isStatelevel\": \"true\"\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Workflow.BusinessServiceConfig",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"Workflow.BusinessServiceConfig\",\n        \"data\": {\n            \"code\": \"ADVOCATE\",\n            \"isStateLevel\": true\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Workflow.BusinessService",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"Workflow.BusinessService\",\n        \"data\": {\n            \"tenantId\": \"default\",\n            \"businessService\": \"ADVOCATE\",\n            \"business\": \"advocate-services\",\n            \"businessServiceSla\": 432000000,\n            \"states\": [\n                {\n                    \"sla\": null,\n                    \"state\": null,\n                    \"applicationStatus\": null,\n                    \"docUploadRequired\": true,\n                    \"isStartState\": true,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": true,\n                    \"actions\": [\n                        {\n                            \"action\": \"APPLY\",\n                            \"nextState\": \"APPLIED\",\n                            \"roles\": [\n                                \"ADVOCATE\"\n                            ]\n                        },\n                        {\n                            \"action\": \"APPLY\",\n                            \"nextState\": \"APPLIED\",\n                            \"roles\": [\n                                \"SYSTEM\"\n                            ]\n                        }\n                    ]\n                },\n                {\n                    \"sla\": null,\n                    \"state\": \"APPLIED\",\n                    \"applicationStatus\": \"APPLIED\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": true,\n                    \"isStateUpdatable\": false,\n                    \"actions\": [\n                        {\n                            \"action\": \"APPROVE\",\n                            \"nextState\": \"REGISTRATIONCOMPLETEDs\",\n                            \"roles\": [\n                                \"NYAY_MITRA\"\n                            ]\n                        },\n                        {\n                            \"action\": \"REJECT\",\n                            \"nextState\": \"REJECTED\",\n                            \"roles\": [\n                                \"NYAY_MITRA\"\n                            ]\n                        }\n                    ]\n                },\n                {\n                    \"sla\": null,\n                    \"state\": \"REJECTED\",\n                    \"applicationStatus\": \"REJECTED\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": true,\n                    \"isStateUpdatable\": false,\n                    \"actions\": null\n                },\n                {\n                    \"sla\": null,\n                    \"state\": \"REGISTRATIONCOMPLETED\",\n                    \"applicationStatus\": \"REGISTRATIONCOMPLETED\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": true,\n                    \"isStateUpdatable\": false,\n                    \"actions\": null\n                }\n            ]\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Channel.channelList-APPROVE",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"Channel.channelList\",\n        \"data\": {\n            \"businessService\": \"ADVOCATE\",\n            \"module\": \"advocate-services\",\n            \"action\": \"APPROVE\",\n            \"channelNames\": [\n                \"SMS\"\n            ]\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Channel.channelList-REJECT",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": \"\",\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ]\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"default\",\n        \"schemaCode\": \"Channel.channelList\",\n        \"data\": {\n            \"businessService\": \"ADVOCATE\",\n            \"module\": \"advocate-services\",\n            \"action\": \"REJECT\",\n            \"channelNames\": [\n                \"SMS\"\n            ]\n        },\n        \"isActive\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mdms-host}}/v2/_create",
+									"host": [
+										"{{mdms-host}}"
+									],
+									"path": [
+										"v2",
+										"_create"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "workflow",
+			"item": [
+				{
+					"name": "create-workflow",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"Advocate\",\n        \"action\": \"\",\n        \"did\": 0,\n        \"key\": \"\",\n        \"msgId\": \"\",\n        \"requesterId\": \"\",\n        \"ts\": 1513579888683,\n        \"ver\": \".01\",\n        \"authToken\": \"{{devAuth}}\",\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"{{userid}}\",\n            \"userName\": \"9973140618\",\n            \"mobileNumber\": \"9973140618\",\n            \"emailId\": null,\n            \"type\": \"EMPLOYEE\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ],\n            \"tenantId\": \"{{tenantid}}\"\n        }\n    },\n    \"BusinessServices\": [\n        {\n            \"tenantId\": \"default\",\n            \"businessService\": \"ADVOCATE-REGISTRATION\",\n            \"business\": \"advocate-services\",\n            \"businessServiceSla\": 432000000,\n            \"states\": [\n                {\n                    \"sla\": null,\n                    \"state\": null,\n                    \"applicationStatus\": null,\n                    \"docUploadRequired\": true,\n                    \"isStartState\": true,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": true,\n                    \"actions\": [\n                        {\n                            \"action\": \"REGISTER\",\n                            \"nextState\": \"REGISTRATIONREQUESTED\",\n                            \"roles\": [\n                                \"ADVOCATE\"\n                            ]\n                        }\n                    ]\n                },\n                {\n                    \"sla\": null,\n                    \"state\": \"REGISTRATIONREQUESTED\",\n                    \"applicationStatus\": \"REGISTRATIONREQUESTED\",\n                    \"docUploadRequired\": true,\n                    \"isStartState\": false,\n                    \"isTerminateState\": true,\n                    \"isStateUpdatable\": false,\n                    \"actions\": [\n                        {\n                            \"action\": \"APPROVE\",\n                            \"nextState\": \"REGISTRATIONCOMPLETED\",\n                            \"roles\": [\n                                \"APPROVER\"\n                            ]\n                        },\n                        {\n                            \"action\": \"APPROVE\",\n                            \"nextState\": \"REGISTRATIONCOMPLETED\",\n                            \"roles\": [\n                                \"SYSTEM\"\n                            ]\n                        },\n                        {\n                            \"action\": \"REJECT\",\n                            \"nextState\": \"REJECTED\",\n                            \"roles\": [\n                                \"APPROVER\"\n                            ]\n                        }\n                    ]\n                },\n                {\n                    \"sla\": null,\n                    \"state\": \"REJECTED\",\n                    \"applicationStatus\": \"REJECTED\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": true,\n                    \"isStateUpdatable\": false\n                },\n                {\n                    \"sla\": null,\n                    \"state\": \"REGISTRATIONCOMPLETED\",\n                    \"applicationStatus\": \"REGISTRATIONCOMPLETED\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": true,\n                    \"isStateUpdatable\": false,\n                    \"actions\": null\n                }\n            ]\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8280/egov-workflow-v2/egov-wf/businessservice/_create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8280",
+							"path": [
+								"egov-workflow-v2",
+								"egov-wf",
+								"businessservice",
+								"_create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search-wf",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"Advocate\",\n        \"action\": \"\",\n        \"did\": 0,\n        \"key\": \"\",\n        \"msgId\": \"\",\n        \"requesterId\": \"\",\n        \"ts\": 1513579888683,\n        \"ver\": \".01\",\n        \"authToken\": \"{{devAuth}}\",\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"{{userid}}\",\n            \"userName\": \"9973140618\",\n            \"mobileNumber\": \"9973140618\",\n            \"emailId\": null,\n            \"type\": \"EMPLOYEE\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ],\n            \"tenantId\": \"{{tenantid}}\"\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{wf-host}}/businessservice/_search?tenantId=default&businessServices=ADVOCATE-REGISTRATION",
+							"host": [
+								"{{wf-host}}"
+							],
+							"path": [
+								"businessservice",
+								"_search"
+							],
+							"query": [
+								{
+									"key": "tenantId",
+									"value": "default"
+								},
+								{
+									"key": "businessServices",
+									"value": "ADVOCATE-REGISTRATION"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search-wf-process-by-Ids",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"Advocate\",\n        \"action\": \"\",\n        \"did\": 0,\n        \"key\": \"\",\n        \"msgId\": \"\",\n        \"requesterId\": \"\",\n        \"ts\": 1513579888683,\n        \"ver\": \".01\",\n        \"authToken\": \"{{devAuth}}\",\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"{{userid}}\",\n            \"userName\": \"9973140618\",\n            \"mobileNumber\": \"9973140618\",\n            \"emailId\": null,\n            \"type\": \"EMPLOYEE\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ],\n            \"tenantId\": \"{{tenantid}}\"\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{wf-host}}/process/_search?tenantId=default&businessIds=ADVOC_000011_2025",
+							"host": [
+								"{{wf-host}}"
+							],
+							"path": [
+								"process",
+								"_search"
+							],
+							"query": [
+								{
+									"key": "tenantId",
+									"value": "default"
+								},
+								{
+									"key": "businessIds",
+									"value": "ADVOC_000011_2025"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search-wf-process-by-assignee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"Advocate\",\n        \"action\": \"\",\n        \"did\": 0,\n        \"key\": \"\",\n        \"msgId\": \"\",\n        \"requesterId\": \"\",\n        \"ts\": 1513579888683,\n        \"ver\": \".01\",\n        \"authToken\": \"{{devAuth}}\",\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"{{useriid}}\",\n            \"userName\": \"9973140618\",\n            \"mobileNumber\": \"9973140618\",\n            \"emailId\": null,\n            \"type\": \"EMPLOYEE\",\n            \"roles\": [\n                {\n                    \"code\": \"EMPLOYEE\",\n                    \"name\": \"Employee\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ],\n            \"tenantId\": \"{{tenantid}}\"\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{wf-host}}/process/_search?tenantId=default&businessIds=ADVOC_000011_2025",
+							"host": [
+								"{{wf-host}}"
+							],
+							"path": [
+								"process",
+								"_search"
+							],
+							"query": [
+								{
+									"key": "tenantId",
+									"value": "default"
+								},
+								{
+									"key": "businessIds",
+									"value": "ADVOC_000011_2025"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "approve/reject",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"Advocate\",\n        \"action\": \"\",\n        \"did\": 0,\n        \"key\": \"\",\n        \"msgId\": \"\",\n        \"requesterId\": \"\",\n        \"ts\": 1513579888683,\n        \"ver\": \".01\",\n        \"userInfo\": {\n            \"id\": 271,\n            \"uuid\": \"{{userid}}\",\n            \"userName\": \"9973140618\",\n            \"mobileNumber\": \"9973140618\",\n            \"emailId\": null,\n            \"type\": \"CITIZEN\",\n            \"roles\": [\n                {\n                    \"code\": \"APPROVER\",\n                    \"name\": \"Advocate\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ],\n            \"tenantId\": \"{{tenantid}}\"\n        }\n    },\n    \"ProcessInstances\": [\n        {\n            \"tenantId\": \"default\",\n            \"businessService\": \"ADVOCATE\",\n            \"businessId\": \"ADVOC_000001_2025\",\n            \"action\": \"APPROVE\",\n            \"comment\": null,\n            \"assignee\": null,\n            \"previousStatus\": null,\n            \"moduleName\": \"advocate-services\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{wf-host}}/process/_transition",
+							"host": [
+								"{{wf-host}}"
+							],
+							"path": [
+								"process",
+								"_transition"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "create NYAY_MITRA",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"Rainmaker\",\n        \"ver\": \".01\",\n        \"action\": \"\",\n        \"did\": \"1\",\n        \"key\": \"\",\n        \"msgId\": \"20170310130900|en_IN\",\n        \"requesterId\": \"\",\n        \"authToken\": \"\"\n    },\n    \"Employees\": [\n        {\n            \"employeeStatus\": \"EMPLOYED\",\n            \"employeeType\": \"PERMANENT\",\n            \"dateOfAppointment\": 1691389941,\n            \"jurisdictions\": [\n                {\n                    \"hierarchy\": \"ADMIN\",\n                    \"boundary\": \"208\",\n                    \"boundaryType\": \"District\",\n                    \"tenantId\": \"br\",\n                    \"isActive\": true\n                }\n            ],\n            \"assignments\": [\n                {\n                    \"designation\": \"AssistedMode Agent\",\n                    \"department\": \"AssistedMode\",\n                    \"fromDate\": 1691389941,\n                    \"toDate\": null,\n                    \"govtOrderNumber\": null,\n                    \"tenantid\": \"br\",\n                    \"reportingTo\": null,\n                    \"isHOD\": false,\n                    \"isCurrentAssignment\": true\n                }\n            ],\n            \"serviceHistory\": [],\n            \"education\": [],\n            \"tests\": [],\n            \"tenantId\": \"br\",\n            \"documents\": [],\n            \"deactivationDetails\": [],\n            \"reactivationDetails\": [],\n            \"reActivateEmployee\": false,\n            \"user\": {\n                \"userName\": \"agent3.assistantmode@beehyv.com\",\n                \"password\": \"Krishi@123\",\n                \"salutation\": null,\n                \"name\": \"Agent Three\",\n                \"gender\": null,\n                \"mobileNumber\": \"7507550063\",\n                \"emailId\": \"agent3.assistantmode@beehyv.com\",\n                \"altContactNumber\": null,\n                \"pan\": null,\n                \"aadhaarNumber\": null,\n                \"permanentAddress\": null,\n                \"permanentCity\": null,\n                \"permanentPinCode\": null,\n                \"correspondenceCity\": null,\n                \"correspondencePinCode\": null,\n                \"correspondenceAddress\": null,\n                \"active\": true,\n                \"dob\": 0,\n                \"pwdExpiryDate\": 1724144679000,\n                \"locale\": null,\n                \"type\": \"EMPLOYEE\",\n                \"signature\": null,\n                \"accountLocked\": false,\n                \"roles\": [\n                    {\n                        \"name\": \"NYAY_MITRA\",\n                        \"code\": \"APPROVER\",\n                        \"description\": null,\n                        \"tenantId\": \"{{tenantid}}\"\n                    }\n                ],\n                \"fatherOrHusbandName\": null,\n                \"relationship\": null,\n                \"bloodGroup\": null,\n                \"identificationMark\": null,\n                \"photo\": null,\n                \"createdBy\": \"0\",\n                \"createdDate\": 1727713574000,\n                \"lastModifiedBy\": \"0\",\n                \"lastModifiedDate\": 1727713574000,\n                \"otpReference\": null,\n                \"tenantId\": \"br\"\n            },\n            \"isActive\": true\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "https://dfsdev.beehyv.com/egov-hrms/employees/_create",
+					"protocol": "https",
+					"host": [
+						"dfsdev",
+						"beehyv",
+						"com"
+					],
+					"path": [
+						"egov-hrms",
+						"employees",
+						"_create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REGISTER-ADVOCATE",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestInfo\": {\n        \"apiId\": \"Advocate\",\n        \"action\": \"\",\n        \"did\": 0,\n        \"key\": \"\",\n        \"msgId\": \"\",\n        \"requesterId\": \"\",\n        \"ts\": 1513579888683,\n        \"ver\": \".01\",\n        \"authToken\": \"{{devAuth}}\",\n        \"userInfo\": {\n            \"id\": 271,\n            \"uuid\": \"{{userid}}\",\n            \"userName\": \"9973140618\",\n            \"mobileNumber\": \"9973140618\",\n            \"emailId\": null,\n            \"type\": \"advocate\",\n            \"roles\": [\n                {\n                    \"code\": \"ADVOCATE\",\n                    \"name\": \"Advocate\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ],\n            \"tenantId\": \"{{tenantid}}\"\n        }\n    },\n    \"advocates\": [\n        {\n            \"tenantId\": \"{{tenantid}}\",\n            \"barRegistrationNumber\": \"BCI/MH/2023/12345\",\n            \"advocateType\": \"PROSECUTOR\",\n            \"organisationId\": \"ORG-123\",\n            \"individualId\": \"345901\",\n            \"workflow\": {\n                \"action\": \"REGISTER\",\n                \"comments\": \"Advocate Registration\",\n                \"documents\": [\n                    {\n                        \"documentType\": \"image/png\",\n                        \"fileStoreId\": \"511d7d16-953b-421f-bccf-da865c015a20\"\n                    }\n                ],\n                \"assignes\": []\n            },\n            \"documents\": []\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8091/advocate/v1/_create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8091",
+					"path": [
+						"advocate",
+						"v1",
+						"_create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "approve-advocate-wf",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestInfo\": {\n        \"apiId\": \"Advocate\",\n        \"action\": \"\",\n        \"did\": 0,\n        \"key\": \"\",\n        \"msgId\": \"\",\n        \"requesterId\": \"\",\n        \"ts\": 1513579888683,\n        \"ver\": \".01\",\n        \"authToken\": \"{{devAuth}}\",\n        \"userInfo\": {\n            \"id\": 271,\n            \"uuid\": \"{{userid}}\",\n            \"userName\": \"9973140618\",\n            \"mobileNumber\": \"9973140618\",\n            \"emailId\": null,\n            \"type\": \"advocate\",\n            \"roles\": [\n                {\n                    \"code\": \"SYSTEM\",\n                    \"name\": \"Approver\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ],\n            \"tenantId\": \"{{tenantid}}\"\n        }\n    },\n    \"advocates\": [\n        {\n            \"tenantId\": \"{{tenantid}}\",\n            \"barRegistrationNumber\": \"\",\n            \"advocateType\": \"\",\n            \"organisationID\": \"\",\n            \"individualId\": \"\",\n            \"applicationNumber\": \"ADVOC_000021_2025\",\n            \"workflow\": {\n                \"action\": \"APPROVE\",\n                \"comments\": \"Approve application\",\n                \"documents\": [],\n                \"assignes\": []\n            },\n            \"documents\": []\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8091/advocate/v1/_approve",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8091",
+					"path": [
+						"advocate",
+						"v1",
+						"_approve"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "approve-advocate-registration",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestInfo\": {\n        \"apiId\": \"Advocate\",\n        \"action\": \"\",\n        \"did\": 0,\n        \"key\": \"\",\n        \"msgId\": \"\",\n        \"requesterId\": \"\",\n        \"ts\": 1513579888683,\n        \"ver\": \".01\",\n        \"authToken\": \"{{devAuth}}\",\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"{{userid}}\",\n            \"userName\": \"9973140618\",\n            \"mobileNumber\": \"9973140618\",\n            \"emailId\": null,\n            \"type\": \"advocate\",\n            \"roles\": [\n                {\n                    \"code\": \"APPROVER\",\n                    \"name\": \"Approver\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ],\n            \"tenantId\": \"{{tenantid}}\"\n        }\n    },\n    \"advocates\": [\n        {\n            \"tenantId\": \"{{tenantid}}\",\n            \"barRegistrationNumber\": \"BCI/MH/2023/12345\",\n            \"advocateType\": \"PROSECUTOR\",\n            \"organisationId\": \"\",\n            \"individualId\": \"\",\n            \"applicationNumber\": \"ADVOC_000025_2025\",\n            \"workflow\": {\n                \"action\": \"APPROVE\",\n                \"comments\": \"Dear Applicant, your application has been approved\",\n                \"documents\": [],\n                \"assignes\": []\n            },\n            \"documents\": []\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8091/advocate/v1/_update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8091",
+					"path": [
+						"advocate",
+						"v1",
+						"_update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search-advocate",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"Advocate\",\n        \"action\": \"\",\n        \"did\": 0,\n        \"key\": \"\",\n        \"msgId\": \"\",\n        \"requesterId\": \"\",\n        \"ts\": 1513579888683,\n        \"ver\": \".01\",\n        \"authToken\": \"{{devAuth}}\",\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"{{userid}}\",\n            \"userName\": \"9973140618\",\n            \"mobileNumber\": \"9973140618\",\n            \"emailId\": null,\n            \"type\": \"advocate\",\n            \"roles\": [\n                {\n                    \"code\": \"ADVOCATE\",\n                    \"name\": \"Advocate\",\n                    \"tenantId\": \"{{tenantid}}\"\n                },\n                {\n                    \"code\": \"APPROVER\",\n                    \"name\": \"Approver\",\n                    \"tenantId\": \"{{tenantid}}\"\n                }\n            ],\n            \"tenantId\": \"{{tenantid}}\"\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8091/advocate/v1/_search?applicationNumber=ADVOC_000025_2025",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8091",
+					"path": [
+						"advocate",
+						"v1",
+						"_search"
+					],
+					"query": [
+						{
+							"key": "applicationNumber",
+							"value": "ADVOC_000025_2025"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "tenantid",
+			"value": "default",
+			"type": "string"
+		},
+		{
+			"key": "host-accesscontrol-role",
+			"value": "http://localhost:8280",
+			"type": "string"
+		},
+		{
+			"key": "RequestInfo",
+			"value": "\"RequestInfo\": { \n        \"apiId\": \"adocate-api\",\n        \"ver\": \"1.0\",\n        \"ts\": 1674662400000,\n        \"action\": \"create\",\n        \"did\": \"device-id-123\",\n        \"key\": \"key-value\",\n        \"msgId\": \"20250125001\",\n        \"authToken\": \"your-auth-token\",\n        \"correlationId\": \"correlation-id-123\",\n        \"plainAccessRequest\": null,\n        \"userInfo\": {\n            \"id\": 100,\n            \"uuid\": \"e721639b-c095-40b3-86e2-acecb2cb6efb\",\n            \"userName\": \"9337682030\",\n            \"name\": \"string\",\n            \"type\": \"EMPLOYEE\",\n            \"mobileNumber\": \"9337682030\",\n            \"emailId\": \"abhilash.seth@gmail.com\",\n            \"roles\": [\n                {\n                    \"id\": 281,\n                    \"name\": \"Employee\"\n                }\n            ]\n        }\n    },",
+			"type": "string"
+		},
+		{
+			"key": "mdms-host",
+			"value": "http://localhost:8094/egov-mdms-service",
+			"type": "string"
+		},
+		{
+			"key": "wf-host",
+			"value": "http://localhost:8280/egov-workflow-v2/egov-wf",
+			"type": "string"
+		},
+		{
+			"key": "userid",
+			"value": "48953e83-5c61-455a-9aa0-fd8f7418dc3b",
+			"type": "string"
+		}
+	]
+}

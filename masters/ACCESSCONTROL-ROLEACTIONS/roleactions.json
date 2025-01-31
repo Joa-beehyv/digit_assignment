@@ -1,0 +1,42 @@
+{
+  "tenantId": "joa",
+  "moduleName": "ACCESSCONTROL-ROLEACTIONS",
+  "roleactions": [
+    {
+      "rolecode": "ADVOCATE",
+      "actionid": 1,
+      "actioncode": "",
+      "tenantid": "joa"
+    },
+    {
+      "rolecode": "ADVOCATE",
+      "actionid": 2,
+      "actioncode": "",
+      "tenantid": "joa"
+    },
+    {
+      "rolecode": "ADVOCATE",
+      "actionid": 3,
+      "actioncode": "",
+      "tenantid": "joa"
+    },
+    {
+      "rolecode": "ADVOCATE",
+      "actionid": 4,
+      "actioncode": "",
+      "tenantid": "joa"
+    },
+    {
+      "rolecode": "ADVOCATE",
+      "actionid": 5,
+      "actioncode": "",
+      "tenantid": "joa"
+    },
+    {
+      "rolecode": "VIEW_WF_STATUS",
+      "actionid": 6,
+      "actioncode": "",
+      "tenantid": "joa"
+    }
+  ]
+}

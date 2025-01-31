@@ -1,0 +1,48 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "integer"
+        },
+        "name": {
+            "type": "string"
+        },
+        "url": {
+            "type": "string"
+        },
+        "displayName": {
+            "type": "string"
+        },
+        "orderNumber": {
+            "type": "integer"
+        },
+        "enabled": {
+            "type": "boolean"
+        },
+        "serviceCode": {
+            "type": "string"
+        },
+        "code": {
+            "type": "string"
+        },
+        "path": {
+            "type": "string"
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "id",
+        "name",
+        "url",
+        "displayName",
+        "orderNumber",
+        "enabled",
+        "serviceCode",
+        "code",
+        "path"
+    ],
+    "x-unique": [
+        "id"
+    ]
+}

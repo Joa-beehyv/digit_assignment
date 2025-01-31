@@ -1,0 +1,580 @@
+{
+  "tenantId": "br",
+  "moduleName": "Workflow",
+  "BusinessService": [
+    {
+      "tenantId": "br",
+      "businessService": "GRM1",
+      "business": "pgr-services",
+      "businessServiceSla": 5184000000,
+      "states": [
+        {
+          "tenantId": "br",
+          "sla": 0,
+          "state": null,
+          "applicationStatus": null,
+          "docUploadRequired": false,
+          "isStartState": true,
+          "isTerminateState": false,
+          "isStateUpdatable": true,
+          "actions": [
+            {
+              "tenantId": "br",
+              "action": "APPLY",
+              "nextState": "PENDINGFORASSIGNMENT",
+              "roles": [
+                "CITIZEN"
+              ],
+              "active": true
+            }
+          ]
+        },
+        {
+          "tenantId": "br",
+          "sla": 0,
+          "state": "PENDINGFORASSIGNMENT",
+          "applicationStatus": "PENDINGFORASSIGNMENT",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": false,
+          "isStateUpdatable": true,
+          "actions": [
+            {
+              "tenantId": "br",
+              "action": "ASSIGN",
+              "nextState": "PENDINGATL1",
+              "roles": [
+                "AUTO_ESCALATE"
+              ],
+              "active": true
+            }
+          ]
+        },
+        {
+          "tenantId": "br",
+          "sla": 1209600000,
+          "state": "PENDINGATL1",
+          "applicationStatus": "PENDINGATL1",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": false,
+          "isStateUpdatable": true,
+          "actions": [
+            {
+              "tenantId": "br",
+              "action": "ESCALATE",
+              "nextState": "PENDINGATL2",
+              "roles": [
+                "AUTO_ESCALATE",
+                "AC"
+              ],
+              "active": true
+            },
+            {
+              "tenantId": "br",
+              "action": "RESOLVE",
+              "nextState": "RESOLVEDATL1",
+              "roles": [
+                "AC"
+              ],
+              "active": true
+            }
+          ]
+        },
+        {
+          "tenantId": "br",
+          "sla": 604800000,
+          "state": "PENDINGATL2",
+          "applicationStatus": "PENDINGATL2",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": false,
+          "isStateUpdatable": true,
+          "actions": [
+            {
+              "tenantId": "br",
+              "action": "ESCALATE",
+              "nextState": "PENDINGATL3",
+              "roles": [
+                "AUTO_ESCALATE",
+                "BAO"
+              ],
+              "active": true
+            },
+            {
+              "tenantId": "br",
+              "action": "RESOLVE",
+              "nextState": "RESOLVEDATL2",
+              "roles": [
+                "BAO"
+              ],
+              "active": true
+            }
+          ]
+        },
+        {
+          "tenantId": "br",
+          "sla": 604800000,
+          "state": "PENDINGATL3",
+          "applicationStatus": "PENDINGATL3",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": false,
+          "isStateUpdatable": true,
+          "actions": [
+            {
+              "tenantId": "br",
+              "action": "RESOLVE",
+              "nextState": "RESOLVEDATL3",
+              "roles": [
+                "DAO"
+              ],
+              "active": true
+            },
+            {
+              "tenantId": "br",
+              "action": "ESCALATE",
+              "nextState": "PENDINGATL4",
+              "roles": [
+                "AUTO_ESCALATE",
+                "DAO"
+              ],
+              "active": true
+            }
+          ]
+        },
+        {
+          "tenantId": "br",
+          "sla": 1209600000,
+          "state": "PENDINGATL4",
+          "applicationStatus": "PENDINGATL4",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": false,
+          "isStateUpdatable": true,
+          "actions": [
+            {
+              "tenantId": "br",
+              "action": "RESOLVE",
+              "nextState": "CLOSEDAFTERRESOLUTION",
+              "roles": [
+                "JD"
+              ],
+              "active": true
+            }
+          ]
+        },
+        {
+          "tenantId": "br",
+          "sla": 0,
+          "state": "RESOLVEDATL3",
+          "applicationStatus": "RESOLVEDATL3",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": false,
+          "isStateUpdatable": true,
+          "actions": [
+            {
+              "tenantId": "br",
+              "action": "REOPEN",
+              "nextState": "REOPENEDATL3",
+              "roles": [
+                "CITIZEN"
+              ],
+              "active": true
+            },
+            {
+              "tenantId": "br",
+              "action": "CLOSE",
+              "nextState": "CLOSEDAFTERRESOLUTION",
+              "roles": [
+                "CITIZEN"
+              ],
+              "active": true
+            }
+          ]
+        },
+        {
+          "tenantId": "br",
+          "sla": 0,
+          "state": "RESOLVEDATL1",
+          "applicationStatus": "RESOLVEDATL1",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": false,
+          "isStateUpdatable": true,
+          "actions": [
+            {
+              "tenantId": "br",
+              "action": "CLOSE",
+              "nextState": "CLOSEDAFTERRESOLUTION",
+              "roles": [
+                "CITIZEN"
+              ],
+              "active": true
+            },
+            {
+              "tenantId": "br",
+              "action": "REOPEN",
+              "nextState": "REOPENEDATL1",
+              "roles": [
+                "CITIZEN"
+              ],
+              "active": true
+            }
+          ]
+        },
+        {
+          "tenantId": "br",
+          "sla": 0,
+          "state": "RESOLVEDATL2",
+          "applicationStatus": "RESOLVEDATL2",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": false,
+          "isStateUpdatable": true,
+          "actions": [
+            {
+              "tenantId": "br",
+              "action": "REOPEN",
+              "nextState": "REOPENEDATL2",
+              "roles": [
+                "CITIZEN"
+              ],
+              "active": true
+            },
+            {
+              "tenantId": "br",
+              "action": "CLOSE",
+              "nextState": "CLOSEDAFTERRESOLUTION",
+              "roles": [
+                "CITIZEN"
+              ],
+              "active": true
+            }
+          ]
+        },
+        {
+          "tenantId": "br",
+          "sla": 0,
+          "state": "REOPENEDATL1",
+          "applicationStatus": "REOPENEDATL1",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": false,
+          "isStateUpdatable": true,
+          "actions": [
+            {
+              "tenantId": "br",
+              "action": "REASSIGN",
+              "nextState": "PENDINGATL2",
+              "roles": [
+                "AUTO_ESCALATE"
+              ],
+              "active": true
+            }
+          ]
+        },
+        {
+          "tenantId": "br",
+          "sla": 0,
+          "state": "REOPENEDATL2",
+          "applicationStatus": "REOPENEDATL2",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": false,
+          "isStateUpdatable": true,
+          "actions": [
+            {
+              "tenantId": "br",
+              "action": "REASSIGN",
+              "nextState": "PENDINGATL3",
+              "roles": [
+                "AUTO_ESCALATE"
+              ],
+              "active": true
+            }
+          ]
+        },
+        {
+          "tenantId": "br",
+          "sla": 0,
+          "state": "REOPENEDATL3",
+          "applicationStatus": "REOPENEDATL3",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": false,
+          "isStateUpdatable": true,
+          "actions": [
+            {
+              "tenantId": "br",
+              "action": "REASSIGN",
+              "nextState": "PENDINGATL4",
+              "roles": [
+                "AUTO_ESCALATE"
+              ],
+              "active": true
+            }
+          ]
+        },
+        {
+          "tenantId": "br",
+          "sla": 0,
+          "state": "CLOSEDAFTERRESOLUTION",
+          "applicationStatus": "CLOSEDAFTERRESOLUTION",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": true,
+          "isStateUpdatable": false,
+          "actions": null
+        }
+      ]
+    },
+    {
+      "tenantId": "br",
+      "businessService": "GRM2",
+      "business": "pgr-services",
+      "businessServiceSla": 5184000000,
+      "states": [
+        {
+          "tenantId": "br",
+          "sla": 0,
+          "state": null,
+          "applicationStatus": null,
+          "docUploadRequired": false,
+          "isStartState": true,
+          "isTerminateState": false,
+          "isStateUpdatable": true,
+          "actions": [
+            {
+              "tenantId": "br",
+              "action": "APPLY",
+              "nextState": "PENDINGFORASSIGNMENT",
+              "roles": [
+                "CITIZEN"
+              ],
+              "active": true
+            }
+          ]
+        },
+        {
+          "tenantId": "br",
+          "sla": 0,
+          "state": "PENDINGFORASSIGNMENT",
+          "applicationStatus": "PENDINGFORASSIGNMENT",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": false,
+          "isStateUpdatable": true,
+          "actions": [
+            {
+              "tenantId": "br",
+              "action": "ASSIGN",
+              "nextState": "PENDINGATL1",
+              "roles": [
+                "AUTO_ESCALATE"
+              ],
+              "active": true
+            }
+          ]
+        },
+        {
+          "tenantId": "br",
+          "sla": 1209600000,
+          "state": "PENDINGATL1",
+          "applicationStatus": "PENDINGATL1",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": true,
+          "isStateUpdatable": true,
+          "actions": [
+            {
+              "tenantId": "br",
+              "action": "ESCALATE",
+              "nextState": "PENDINGATL2",
+              "roles": [
+                "AUTO_ESCALATE",
+                "BHO"
+              ],
+              "active": true
+            },
+            {
+              "tenantId": "br",
+              "action": "RESOLVE",
+              "nextState": "RESOLVEDATL1",
+              "roles": [
+                "BHO"
+              ],
+              "active": true
+            }
+          ]
+        },
+        {
+          "tenantId": "br",
+          "sla": 604800000,
+          "state": "PENDINGATL2",
+          "applicationStatus": "PENDINGATL2",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": false,
+          "isStateUpdatable": true,
+          "actions": [
+            {
+              "tenantId": "br",
+              "action": "RESOLVE",
+              "nextState": "RESOLVEDATL2",
+              "roles": [
+                "ADH"
+              ],
+              "active": true
+            },
+            {
+              "tenantId": "br",
+              "action": "ESCALATE",
+              "nextState": "PENDINGATL3",
+              "roles": [
+                "AUTO_ESCALATE",
+                "ADH"
+              ],
+              "active": true
+            }
+          ]
+        },
+        {
+          "tenantId": "br",
+          "sla": 1209600000,
+          "state": "PENDINGATL3",
+          "applicationStatus": "PENDINGATL3",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": false,
+          "isStateUpdatable": true,
+          "actions": [
+            {
+              "tenantId": "br",
+              "action": "RESOLVE",
+              "nextState": "CLOSEDAFTERRESOLUTION",
+              "roles": [
+                "JD"
+              ],
+              "active": true
+            }
+          ]
+        },
+        {
+          "tenantId": "br",
+          "sla": 0,
+          "state": "RESOLVEDATL1",
+          "applicationStatus": "RESOLVEDATL1",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": true,
+          "isStateUpdatable": false,
+          "actions": [
+            {
+              "tenantId": "br",
+              "action": "REOPEN",
+              "nextState": "REOPENEDATL1",
+              "roles": [
+                "CITIZEN"
+              ],
+              "active": true
+            },
+            {
+              "tenantId": "br",
+              "action": "CLOSE",
+              "nextState": "CLOSEDAFTERRESOLUTION",
+              "roles": [
+                "CITIZEN"
+              ],
+              "active": true
+            }
+          ]
+        },
+        {
+          "tenantId": "br",
+          "sla": 0,
+          "state": "RESOLVEDATL2",
+          "applicationStatus": "RESOLVEDATL2",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": true,
+          "isStateUpdatable": false,
+          "actions": [
+            {
+              "tenantId": "br",
+              "action": "CLOSE",
+              "nextState": "CLOSEDAFTERRESOLUTION",
+              "roles": [
+                "CITIZEN"
+              ],
+              "active": true
+            },
+            {
+              "tenantId": "br",
+              "action": "REOPEN",
+              "nextState": "REOPENEDATL2",
+              "roles": [
+                "CITIZEN"
+              ],
+              "active": true
+            }
+          ]
+        },
+        {
+          "tenantId": "br",
+          "sla": 0,
+          "state": "REOPENEDATL1",
+          "applicationStatus": "REOPENEDATL1",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": true,
+          "isStateUpdatable": false,
+          "actions": [
+            {
+              "tenantId": "br",
+              "action": "REASSIGN",
+              "nextState": "PENDINGATL2",
+              "roles": [
+                "AUTO_ESCALATE"
+              ],
+              "active": true
+            }
+          ]
+        },
+        {
+          "tenantId": "br",
+          "sla": 0,
+          "state": "REOPENEDATL2",
+          "applicationStatus": "REOPENEDATL2",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": true,
+          "isStateUpdatable": false,
+          "actions": [
+            {
+              "tenantId": "br",
+              "action": "REASSIGN",
+              "nextState": "PENDINGATL3",
+              "roles": [
+                "AUTO_ESCALATE"
+              ],
+              "active": true
+            }
+          ]
+        },
+        {
+          "tenantId": "br",
+          "sla": 0,
+          "state": "CLOSEDAFTERRESOLUTION",
+          "applicationStatus": "CLOSEDAFTERRESOLUTION",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": true,
+          "isStateUpdatable": false,
+          "actions": null
+        }
+      ]
+    }
+  ]
+}

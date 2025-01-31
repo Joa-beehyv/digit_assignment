@@ -1,0 +1,75 @@
+{
+  "tenantId": "br",
+  "moduleName": "ACCESSCONTROL-ACTIONS-TEST",
+  "actions-test": [
+    {
+      "id": 1,
+      "name": "CreateAdvocate",
+      "url": "/advocate/v1/_create",
+      "displayName": "Create Advocate",
+      "orderNumber": 0,
+      "enabled": true,
+      "serviceCode": "advocate-service",
+      "code": "null",
+      "path": ""
+    },
+    {
+      "id": 2,
+      "name": "UpdateAdvocate",
+      "url": "/advocate/v1/_update",
+      "displayName": "Update Advocate",
+      "orderNumber": 0,
+      "enabled": true,
+      "serviceCode": "advocate-service",
+      "code": "null",
+      "path": ""
+    },
+    {
+      "id": 3,
+      "name": "Search Advocate",
+      "url": "/advocate/v1/_search",
+      "displayName": "Get Advocate Details",
+      "orderNumber": 1,
+      "enabled": false,
+      "serviceCode": "ADMIN",
+      "code": "null",
+      "path": ""
+    },
+    {
+      "id": 4,
+      "name": "BusinessService Create",
+      "url": "/egov-workflow-v2/egov-wf/businessservice/_create",
+      "parentModule": "",
+      "displayName": "BusinessService Create",
+      "orderNumber": 0,
+      "enabled": true,
+      "serviceCode": "egov-workflow-v2",
+      "code": "null",
+      "path": ""
+    },
+    {
+      "id": 5,
+      "name": "BusinessService Update",
+      "url": "/egov-workflow-v2/egov-wf/businessservice/_update",
+      "parentModule": "",
+      "displayName": "BusinessService Update",
+      "orderNumber": 0,
+      "enabled": true,
+      "serviceCode": "egov-workflow-v2",
+      "code": "null",
+      "path": ""
+    },
+    {
+      "id": 6,
+      "name": "BusinessService Search",
+      "url": "/egov-workflow-v2/egov-wf/businessservice/_search",
+      "parentModule": "",
+      "displayName": "BusinessService Search",
+      "orderNumber": 0,
+      "enabled": true,
+      "serviceCode": "egov-workflow-v2",
+      "code": "null",
+      "path": ""
+    }
+  ]
+}
