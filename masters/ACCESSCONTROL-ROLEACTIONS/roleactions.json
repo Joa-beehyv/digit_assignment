@@ -1,42 +1,108 @@
 {
-  "tenantId": "joa",
+  "tenantId": "default",
   "moduleName": "ACCESSCONTROL-ROLEACTIONS",
   "roleactions": [
     {
       "rolecode": "ADVOCATE",
       "actionid": 1,
       "actioncode": "",
-      "tenantid": "joa"
-    },
-    {
-      "rolecode": "ADVOCATE",
-      "actionid": 2,
-      "actioncode": "",
-      "tenantid": "joa"
+      "tenantid": "default"
     },
     {
       "rolecode": "ADVOCATE",
       "actionid": 3,
       "actioncode": "",
-      "tenantid": "joa"
+      "tenantid": "default"
     },
     {
       "rolecode": "ADVOCATE",
       "actionid": 4,
       "actioncode": "",
-      "tenantid": "joa"
+      "tenantid": "default"
     },
     {
       "rolecode": "ADVOCATE",
       "actionid": 5,
       "actioncode": "",
-      "tenantid": "joa"
+      "tenantid": "default"
     },
     {
-      "rolecode": "VIEW_WF_STATUS",
+      "rolecode": "ADVOCATE",
       "actionid": 6,
       "actioncode": "",
-      "tenantid": "joa"
+      "tenantid": "default"
+    },
+    {
+      "rolecode": "ADVOCATE",
+      "actionid": 2,
+      "actioncode": "",
+      "tenantid": "default"
+    },
+    {
+      "rolecode": "APPROVER",
+      "actionid": 3,
+      "actioncode": "",
+      "tenantid": "default"
+    },
+    {
+      "rolecode": "APPROVER",
+      "actionid": 10,
+      "actioncode": "",
+      "tenantid": "default"
+    },
+    {
+      "rolecode": "APPROVER",
+      "actionid": 11,
+      "actioncode": "",
+      "tenantid": "default"
+    },
+    {
+      "rolecode": "APPROVER",
+      "actionid": 12,
+      "actioncode": "",
+      "tenantid": "default"
+    },
+    {
+      "rolecode": "APPROVER",
+      "actionid": 13,
+      "actioncode": "",
+      "tenantid": "default"
+    },
+    {
+      "rolecode": "SUPERUSER",
+      "actionid": 14,
+      "actioncode": "",
+      "tenantid": "default"
+    },
+    {
+      "rolecode": "APPROVER",
+      "actionid": 15,
+      "actioncode": "",
+      "tenantid": "default"
+    },
+    {
+      "rolecode": "APPROVER",
+      "actionid": 16,
+      "actioncode": "",
+      "tenantid": "default"
+    },
+    {
+      "rolecode": "SUPERUSER",
+      "actionid": 8,
+      "actioncode": "",
+      "tenantid": "default"
+    },
+    {
+      "rolecode": "SUPERUSER",
+      "actionid": 9,
+      "actioncode": "",
+      "tenantid": "default"
+    },
+    {
+      "rolecode": "SUPERUSER",
+      "actionid": 17,
+      "actioncode": "",
+      "tenantid": "default"
     }
   ]
 }

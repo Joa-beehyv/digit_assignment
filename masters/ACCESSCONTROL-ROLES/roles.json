@@ -1,35 +1,31 @@
 {
-  "tenantId": "joa",
+  "tenantId": "default",
   "moduleName": "ACCESSCONTROL-ROLES",
   "roles": [
     {
-      "code": "ADVOCATE",
       "name": "Advocate",
-      "description": "Advocate role"
+      "code": "ADVOCATE",
+      "description": "Register, View/Manage Cases, Add Clerks, View Application Status."
     },
     {
-      "code": "APPLY",
-      "name": "Apply"
+      "name": "Advocate Clerk",
+      "code": "ADVOCATE_CLERK",
+      "description": "Assist Advocates, Access Assigned Case Files."
     },
     {
-      "code": "APPROVER",
       "name": "Approver",
-      "description": "Approves workflow"
+      "code": "APPROVER",
+      "description": "Approve/Reject Registrations, Add Remarks for Rejections, View Registration Details."
     },
     {
-      "code": "CLERK",
-      "name": "Clerk",
-      "description": "Advocate clerk"
+      "name": "System",
+      "code": "SYSTEM",
+      "description": "Auto-approve Litigants, Generate IDs, Trigger Notifications."
     },
     {
-      "code": "VIEW_WF_STATUS",
-      "name": "View workflow status",
-      "description": "Able to view all workflow status"
-    },
-    {
-      "code": "VIEW_MY_APP_STATUS",
-      "name": "View my workflow status",
-      "description": "Able to view my workflow status"
+      "code": "SUPERUSER",
+      "name": "Super User",
+      "description": "Super User. Can change all master data and has access to all the system screens."
     }
   ]
 }

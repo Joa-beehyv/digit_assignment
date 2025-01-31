@@ -1,5 +1,5 @@
 {
-  "tenantId": "joa",
+  "tenantId": "default",
   "moduleName": "common-masters",
   "UserType": [
     {

@@ -1,11 +1,11 @@
 ﻿{
-  "tenantId": "br",
+  "tenantId": "joa",
   "moduleName": "tenant",
   "tenants": [
     {
-      "code": "br",
-      "name": "Bihar",
-      "description": "Bihar DFS",
+      "code": "joa",
+      "name": "Sample",
+      "description": "Sample",
       "logoId": "https://s3.ap-south-1.amazonaws.com/pg-egov-assets/pg.citye/logo.png",
       "imageId": "",
       "domainUrl": null,

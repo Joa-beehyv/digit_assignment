@@ -1,9 +1,9 @@
 {
-    "tenantId": "joa",
+    "tenantId": "default",
     "moduleName": "Workflow",
     "BusinessServiceMasterConfig": [
       {
-        "businessService": "REG",
+        "businessService": "ADVOCATE",
         "active": "true",
         "isStatelevel": "true"
       }
